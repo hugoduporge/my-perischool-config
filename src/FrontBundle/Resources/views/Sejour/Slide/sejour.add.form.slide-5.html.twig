@@ -1,0 +1,44 @@
+<div id="slide5">
+    <div class="sous-titre-ajout-sejour m-t-10 m-b-30">
+        <div class="fas fa-circle text-palette-violet m-r-30"></div>
+        <div>
+            <div class="ft-size-16 text-muted-2">Villes partenaires</div>
+            <div class="ft-size-14 text-muted">Veuillez renseigner les villes partenaires de cet accueil de loisirs. Attention, les enfants des villes partenaires bénéficient du tarif ville (interne).</div>
+        </div>
+    </div>
+
+    <div id="cards-villes-partenaires">
+
+        <div id="btn-ajout-card-ville-partenaire" class="text-muted-2">
+            <div class="far fa-plus m-b-20 icone-card-ajout-ville-partenaire text-palette-vert"></div>
+            <div style="color:red; font-weight: bolder">Ajouter une ville partenaire</div>
+        </div>
+
+    </div>
+
+    <div id="card-ville-partenaire-prototype" data-prototype="{% filter escape %}{{ include('@Front/Sejour/Prototype/sejour.ajout.ville-partenaire.prototype.html.twig') }}{% endfilter %}"></div>
+
+    <div id="checkbox-type-visu">
+
+
+        <input type="radio" id="checkbox-day" name="checkbox" value="day" checked> Sur chacun des jours<br>
+
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <button id="btn-slide-precedent-To4" type="button" class="btn btn-palette-vert btn-slide-precedent-Toslide4 to-right">
+                Précedent
+                <span class="far fa-arrow-right m-l-5"></span>
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <button id="btn-slide-suivant-To6" type="button" class="btn btn-palette-vert btn-slide-suivant-Toslide6 to-right">
+                Suivant
+                <span class="far fa-arrow-right m-l-5"></span>
+            </button>
+        </div>
+    </div>
+</div>

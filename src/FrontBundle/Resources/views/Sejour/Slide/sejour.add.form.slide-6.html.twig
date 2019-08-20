@@ -1,0 +1,45 @@
+
+<div id="bloc-creneaux-entiers"  style="display:none;">
+
+    <div class="sous-titre-ajout-sejour m-t-10 m-b-30">
+        <div class="fas fa-circle text-palette-violet m-r-30"></div>
+        <div>
+            <div class="ft-size-16 text-muted-2">Créneaux sur toute la durée de l'accueil de loisirs</div>
+            <div class="ft-size-14 text-muted">Veuillez renseigner les secteurs des créneaux qui s'étendent sur toute la durée de l'accueil de loisirs ainsi que les jours d'ouverture pour ces créneaux</div>
+        </div>
+    </div>
+
+    <div class="checkbox-journees-entier"></div>
+
+    <div id="cards-creneaux-entiers">
+
+
+
+    </div>
+
+</div>
+
+<div id="erreur-secteurs" class="text-palette-rouge ft-size-16" style="display:none;">
+    <b>Chaque créneau sélectionné doit posséder un secteur. Veuillez corriger les créneaux sans secteur ou décocher ceux non voulus.</b>
+</div>
+
+<div id="card-secteur-entier-prototype" data-prototype="{% filter escape %}{{ include('@Front/Sejour/Prototype/sejour.ajout.secteur-entier.prototype.html.twig') }}{% endfilter %}"></div>
+
+
+
+<div class="row">
+    <div class="col-xs-12">
+        <button id="btn-slide-precedent-To5" type="button" class="btn btn-palette-vert btn-slide-precedent-Toslide5 to-right">
+            Précedent
+            <span class="far fa-arrow-right m-l-5"></span>
+        </button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <button id="btn-slide-precedent-To7" type="button" class="btn btn-palette-vert btn-slide-suivant-Toslide7 to-right">
+            Suivant
+            <span class="far fa-arrow-right m-l-5"></span>
+        </button>
+    </div>
+</div>

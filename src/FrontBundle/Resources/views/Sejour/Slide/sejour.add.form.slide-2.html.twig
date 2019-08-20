@@ -1,0 +1,88 @@
+
+<div id="card-bloc-bus">
+    Bus : <input type="checkbox" id="myCheckBus"  onclick="displayBus()">
+{#
+    <p id="test" style="display:none;"> test</p>
+#}
+    <div id="bloc-bus" style="display: none;">
+
+      <div class="sous-titre-ajout-sejour m-t-30 m-b-30">
+            <div class="fas fa-circle text-palette-violet m-r-30"></div>
+            <div>
+                <div class="ft-size-16 text-muted-2">Arrêts de bus</div>
+                <div id="info-bus" class="ft-size-14 text-muted" style="display: none">Au moins un arrêt de bus est requis. Cliquez sur le bouton <b>Ajouter un arrêt de bus</b> pour en ajouter davantage. Cliquez sur la croix d'un arrêt de bus pour le supprimer.</div>
+            </div>
+        </div>
+
+        <div class="arrets-bus" >
+            <button id="btn-ajout-arret-bus" type="button" class="btn btn-palette-vert m-r-20 m-b-20">
+                <span class="fas fa-plus m-r-5"></span>
+                Ajouter un arrêt de bus
+            </button>
+        </div>
+
+    </div>
+
+
+
+</div>
+
+<div id="card-bloc-atl">
+    ATL : <input type="checkbox" id="myCheckatl"  onclick="displayatl()">
+
+    <div id="bloc-atl" style="display: none;">
+
+        <div class="row">
+            <div id="bloc-montant-atl" >
+                <div class="col-xs-12 col-lg-6">
+                    <label class="control-label required text-muted-2" for="montant-atl">Montant de l'aide au temps libre par demi-journée</label>
+                    <input id="montant-atl" name="montantATL" class="form-control" type="text" maxlength="255" placeholder="Exemple : 1.50" required/>
+                </div>
+                <div class="col-xs-12 col-lg-6">
+                    <label class="control-label required text-muted-2" for="demi-journees-atl">Nombre de demi-journées nécessaires pour bénéficier de l'ATL</label>
+                    <input id="demi-journees-atl" type="number" name="demiJourneesATL" class="form-control" placeholder="Exemple : 4" min="1" max="100" step="1" required/>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<div id="bloc-pxf">
+    Paiement en plusieurs fois <input type="checkbox" id="myCheckPxF"  onclick="displayPxF()">
+
+    <div id="bloc-PxF" style="display: none;">
+
+        <div id="bloc-paiement-plusieurs-fois" class="col-xs-12 col-lg-6 m-t-10" >
+            <label class="control-label required text-muted-2" for="nb-echeances">Nombre d'échéances pour le paiement en plusieurs fois</label>
+            <input id="nb-echeances" name="nbEcheances" class="form-control" type="text" maxlength="255" placeholder="Exemple : 3" required/>
+        </div>
+    </div>
+
+
+</div>
+<div id="bloc-pmensuel">
+    Paiement mensuel <input type="checkbox" id="myCheckPmensuel"  onclick="displayPmensuel()">
+
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <button id="btn-slide-precedent-To1" type="button"
+                class="btn btn-palette-vert btn-slide-precedent-Toslide1 to-right">
+            Précedent
+            <span class="far fa-arrow-right m-l-5"></span>
+        </button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <button id="btn-slide-suivant-To3" type="button"
+                class="btn btn-palette-vert btn-slide-suivant-Toslide3 to-right">
+            Suivant
+            <span class="far fa-arrow-right m-l-5"></span>
+        </button>
+    </div>
+</div>

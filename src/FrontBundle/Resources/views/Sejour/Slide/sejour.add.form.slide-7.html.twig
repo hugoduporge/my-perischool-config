@@ -1,0 +1,21 @@
+<div id="cards-jeux-tarifs"></div>
+
+<div>
+    <button class="btn-ajout-jeu-tarif" data-creneau="1" type="button">Ajouter une grille tarifaire </button>
+</div>
+
+<div id="jeu-tarif-prototype" data-prototype="{% filter escape %}{{ include('@Front/Sejour/Prototype/sejour.ajout.jeu-tarif.prototype.html.twig') }}{% endfilter %}"></div>
+
+<div class="row">
+    <div class="col-xs-12">
+        <button id="btn-slide-precedent-To6" type="button" class="btn btn-palette-vert btn-slide-precedent-Toslide6 to-right">
+            Précedent
+            <span class="far fa-arrow-right m-l-5"></span>
+        </button>
+    </div>
+</div>
+<div class="col-xs-12">
+    <button id="btn-valider" type="reset" > Valider
+        <span class="far fa-arrow-right m-l-5"></span>
+    </button>
+</div>

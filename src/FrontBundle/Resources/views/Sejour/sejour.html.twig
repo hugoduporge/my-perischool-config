@@ -1,0 +1,53 @@
+{% block content %}
+<table id="sejours">
+    <thead>
+        <tr>
+            <th> Nom du séjour </th>
+            <th> Action </th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for sejour in sejours %}
+        <tr>
+            <td> {{ sejour.libelle }}</td>
+            <td>
+{#
+            <button class="btn-sejour-edit" ><a class="btn-sejour-edit" href={{ path('sejour_edit', { 'id' : sejour.id }) }} >éditer ce séjour</a></button>
+#}
+            <button class="btn-sejour-delete" data-id="{{ sejour.id }}">supprimer ce séjour</button>
+            </td>
+        </tr>
+    </tbody>
+
+    {% endfor %}
+</table>
+    <button class ="btn-sejour-add"><a href="{{ path('sejour_ajouter') }}">ajouter un séjour</a> </button>
+</body>
+</html>
+{% endblock %}
+
+
+{%  block appendJS %}
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.btn-sejour-delete').click(function () {
+                var id = $(this).attr('data-id');
+
+                $.ajax({
+                    url : '{{ (path('sejour_delete')) }}',
+                    type: "DELETE",
+                    data: {
+                        id: id
+                    },
+                    success: function () {
+                        window.location.reload();
+                    }
+
+                });
+            });
+        });
+
+
+</script>
+{% endblock %}

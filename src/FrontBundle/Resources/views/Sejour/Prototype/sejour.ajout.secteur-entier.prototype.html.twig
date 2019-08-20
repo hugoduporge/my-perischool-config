@@ -1,0 +1,23 @@
+<div name="m-b-15[INDEX_JOURNEE]" class="row m-b-15">
+    <div class="col-xs-6">
+        <select name="[creneau][journees][INDEX_JOURNEE][creneaux][INDEX_CRENEAU][secteurs][INDEX_SECTEUR][creneau]" class="form-control required select-secteur-creneau" required>
+            <option disabled selected>Créneau</option>
+            {% for creneau in crenaux %}
+                <option value="{{ creneau.id }}" >{{ creneau.libelle }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-xs-6">
+        <select name="[journees][INDEX_JOURNEE][creneaux][INDEX_CRENEAU][secteurs][INDEX_SECTEUR][id]" class="form-control required select-secteur-creneau" required>
+            <option disabled selected>Secteur</option>
+            {% for secteur in secteurs %}
+                <option value="{{ secteur.id }}" data-nb-places="{{ secteur.nbPlaces }}" data-age-min="{{ secteur.ageMin }}" data-age-max="{{ secteur.ageMax }}">{{ secteur.libelle }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-xs-4">
+        <input name="[journees][INDEX_JOURNEE][creneaux][INDEX_CRENEAU][secteurs][INDEX_SECTEUR][nbPlaces]" class="form-control required input-nb-places-secteur-creneau" placeholder="Places" type="number" min="1" max="99999" step="1" required/>
+        <input name="[journees][INDEX_JOURNEE][creneaux][INDEX_CRENEAU][secteurs][INDEX_SECTEUR][idSecteurPlaces]" class="input-id-secteur-places" type="hidden"/>
+    </div>
+
+</div>

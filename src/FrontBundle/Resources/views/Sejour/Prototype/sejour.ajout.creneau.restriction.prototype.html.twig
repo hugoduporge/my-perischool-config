@@ -1,0 +1,56 @@
+<div class="row restriction-creneau" data-restriction="INDEX_RESTRICTION">
+
+    <div class="col-xs-6">
+        <label class="control-label required">Critère</label>
+        <select class="form-control select-critere" data-index="INDEX_CRENEAU" data-restriction="INDEX_RESTRICTION" name="creneaux[INDEX_CRENEAU][restrictions][INDEX_RESTRICTION][critere]">
+            {% for critere in criteres %}
+                <option value="{{ critere.id }}">{{ critere.libelle }}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="col-xs-6">
+        <label class="control-label required">Opérateur</label>
+        <select class="form-control select-operateur" data-index="INDEX_CRENEAU" data-restriction="INDEX_RESTRICTION" name="creneaux[INDEX_CRENEAU][restrictions][INDEX_RESTRICTION][operateur]">
+            {% for index, critere in criteres %}
+                {% for operateur in critere.operateursDisponibles %}
+                    {% if operateur == ">=" %}
+                        {% set libelle = "Supérieur ou égal à" %}
+                    {% elseif operateur == "<=" %}
+                        {% set libelle = "Inférieur ou égal à" %}
+                    {% else %}
+                        {% set libelle = "Egal à" %}
+                    {% endif %}
+                    <option data-critere="{{ critere.id }}" value="{{ operateur }}" {% if index != 0 %}style="display: none;"{% endif %}>{{ libelle }}</option>
+                {% endfor %}
+            {% endfor %}
+        </select>
+    </div>
+
+    <div class="col-xs-9">
+        <label class="control-label required m-t-10">Valeur</label>
+        <input name="creneaux[INDEX_CRENEAU][restrictions][INDEX_RESTRICTION][age]" type="number" class="form-control required restriction-valeur-age" placeholder="Exemple : 5" min="0" step="1" maxlength="50">
+
+        <select name="creneaux[INDEX_CRENEAU][restrictions][INDEX_RESTRICTION][classe]" class="form-control restriction-valeur-classe" style="display: none;">
+            {% for classe in classes %}
+                <option data-id="{{ classe.id }}" value="{{ classe.nom }}">{{ classe.nom }}</option>
+            {% endfor %}
+        </select>
+
+        <select name="creneaux[INDEX_CRENEAU][restrictions][INDEX_RESTRICTION][typeDocument]" class="form-control restriction-valeur-type-document" style="display: none;">
+            {% for typeDocument in typesDocuments %}
+                <option data-id="{{ typeDocument.id }}" value="{{ typeDocument.libelle }}">{{ typeDocument.libelle }}</option>
+            {% endfor %}
+        </select>
+
+    </div>
+
+    <div class="col-xs-3">
+        <button type="button" class="btn btn-block btn-palette-gris-clair btn-supprimer-restriction-creneau" title="Supprimer cette restriction"><span class="far fa-times"></span></button>
+    </div>
+
+    <div class="col-xs-12">
+        <hr>
+    </div>
+
+</div>

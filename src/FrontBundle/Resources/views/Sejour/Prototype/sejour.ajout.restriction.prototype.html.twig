@@ -1,0 +1,60 @@
+<div class="card-restriction">
+
+    <div class="card-restriction-titre text-muted-2">
+        Restriction
+        <div class="btn-supprimer-restriction" title="Cliquez ici pour supprimer cette restriction" style="color:red;font-weight: bolder">Supprimer<span class="far fa-times"></span></div>
+    </div>
+
+    <div class="p-l-20 p-r-20 p-t-20 p-b-20">
+
+        <div class="row">
+            <div class="col-xs-6">
+                <label class="control-label required">Critère</label>
+                <select class="form-control select-critere" name="restrictions[INDEX][critere]">
+                    {% for critere in criteres %}
+                        <option value="{{ critere.id }}">{{ critere.libelle }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-xs-6">
+                <label class="control-label required">Opérateur</label>
+                <select class="form-control select-operateur" name="restrictions[INDEX][operateur]">
+                    {% for index, critere in criteres %}
+                        {% for operateur in critere.operateursDisponibles %}
+                            {% if operateur == ">=" %}
+                                {% set libelle = "Supérieur ou égal à" %}
+                            {% elseif operateur == "<=" %}
+                                {% set libelle = "Inférieur ou égal à" %}
+                            {% else %}
+                                {% set libelle = "Egal à" %}
+                            {% endif %}
+                            <option data-critere="{{ critere.id }}" value="{{ operateur }}" {% if index != 0 %}style="display: none;"{% endif %}>{{ libelle }}</option>
+                        {% endfor %}
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+
+        <label class="control-label required m-t-10">Valeur</label>
+        <input name="restrictions[INDEX][age]" type="number" class="form-control required restriction-valeur-age" placeholder="Exemple : 5" min="0" step="1" maxlength="50" required>
+
+        <select name="restrictions[INDEX][classe]" class="form-control restriction-valeur-classe" style="display: none;">
+            {% for classe in classes %}
+                <option value="{{ classe.nom }}">{{ classe.nom }}</option>
+            {% endfor %}
+        </select>
+
+        <select name="restrictions[INDEX][typeDocument]" class="form-control restriction-valeur-type-document" style="display: none;">
+            {% for typeDocument in typesDocuments %}
+                <option value="{{ typeDocument.libelle }}">{{ typeDocument.libelle }}</option>
+            {% endfor %}
+        </select>
+
+        <select name="restrictions[INDEX][commune]" class="form-control restriction-valeur-commune" style="display: none;">
+            {% for commune in communes %}
+                <option value="{{ commune.libelle }}">{{ commune.libelle }}</option>
+            {% endfor %}
+        </select>
+
+    </div>
+</div>

@@ -1,0 +1,76 @@
+<div class="card-jeu-tarif" data-creneau="INDEX_CRENEAU" data-interval="INTERVAL" data-semaine="SEMAINE" data-index-jeu-tarif-journee="INDEX_JEU_TARIF_JOURNEE">
+
+
+
+    <div class="card-jeu-tarif-titre text-muted-2"></div>
+    <input type="text" placeholder="Libelle de la grille tarifaire">
+{#
+
+    <div class="text-muted-2 p-l-20 p-t-20 AFFICHE_JOURNEES">
+        <span class="fas fa-calendar-alt text-palette-rose m-r-5"></span>
+        Jours concernées par cette grille tarifaire
+    </div>
+    <div class="card-jeu-tarif-journees AFFICHE_JOURNEES"></div>
+
+    <input name="jeuxtarifsPROPRIETES[libelle]" value="LIBELLE" class="hidden"/>
+    <input name="jeuxtarifsPROPRIETES[id]" type="hidden" class="id-jeu-tarif"/>
+#}
+
+    <div class="bloc-tarif-global">
+        <div class="text-muted-2 ft-size-14"><span class="fas fa-info-circle m-r-5 text-palette-rose"></span> Aide : appliquer un tarif global</div>
+        <div class="text-muted ft-size-12">Vous pouvez appliquer rapidement un même tarif en remplissant le champ ci-dessous</div>
+        <input type="number" min="0" max="99999" step="0.01" maxlength="5" class="form-control tarif-jeu-tarif-creation-sejour tarif-global m-t-10 m-b-0" placeholder="Tarif global"/>
+    </div>
+
+    <div class="p-l-20 p-r-10 p-b-10">
+
+        {% set compteur = 0 %}
+        {% for key, quotient in quotients %}
+
+            <div class="jeux-tarifs-quotient-familial">
+
+                <div class="row m-t-20 m-b-10">
+                    <div class="col-lg-12 text-center">
+                        <div class="ft-size-16 text-palette-orange btn-dupliquer-lignes-jeu-tarif" data-duplication="qf" >
+                            <b>
+                                {{ quotient.label }}
+                            </b>
+                        </div>
+                    </div>
+                </div>
+
+                {% set situationPrecedente = "" %}
+
+                {% for key2, categorie in categories %}
+
+                    {% set situation = categorie.situation %}
+                    {% if situation != situationPrecedente %}
+                        <div class="text-center text-muted-2 m-b-10 m-t-10 btn-dupliquer-lignes-jeu-tarif" data-duplication="situation" data-nb-tarifs="{{ categorie.nbEnfants }}">
+                            <b>{{ categorie.situation }}</b>
+                        </div>
+                    {% endif %}
+                    {% set situationPrecedente = categorie.situation %}
+
+                    <input type="number" min="0" max="99999" step="0.01" maxlength="5"
+                           name="jeuxtarifsPROPRIETES[tarifs][{{ compteur }}]" class="form-control tarif-jeu-tarif-creation-sejour"
+                           placeholder="{{ categorie.nbEnfants }}{% if categorie.nbEnfants == 1 %}er{% else %}ème{% endif %} enfant {% if categorie.nbEnfants == 3 %}{% endif %}"
+                           data-categorie="{{ categorie.id }}" data-tranche-quotient="{{ quotient.id }}"/>
+
+                    <input type="hidden" name="jeuxtarifsPROPRIETES[situations][{{ compteur }}]" value="{{ categorie.situation }}"/>
+                    <input type="hidden" name="jeuxtarifsPROPRIETES[nbenfants][{{ compteur }}]" value="{{ categorie.nbEnfants }}"/>
+                    <input type="hidden" name="jeuxtarifsPROPRIETES[quotients][{{ compteur }}]" value="{{ quotient.id }}"/>
+
+                    {% set compteur = compteur + 1 %}
+
+                {% endfor %}
+
+            </div>
+
+        {% endfor %}
+
+    </div>
+    <div class="btn-supprimer-jeu-tarif AFFICHE_BOUTON_SUPPRESSION" title="Cliquez pour supprimer cette grille tarifaire">
+        <span class="fas fa-times"><button type="button">supprimer cette grille tarifaire</button></span>
+    </div>
+
+</div>
