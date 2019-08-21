@@ -1,0 +1,25 @@
+body{
+    background-color:lightskyblue !important;
+}
+.error{
+    color:#ff7e6f;
+    font-size: 16px;
+    margin-top: 5px;
+    display: block;
+}
+.form-group{
+    font-size:16px;
+    font-weight: 500;
+}
+
+.btn-suivant{
+    position:relative;
+    margin-left : 70%;
+}
+.form-control{
+    width:10px;
+}
+.date-input{
+    width:15%;
+    font-size: 14px;
+}

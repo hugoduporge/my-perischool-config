@@ -41,7 +41,7 @@ $hasMinorProblems = (bool) count($minorProblems);
         <style>
             /* styles copied from symfony framework bundle */
             html {
-                background: #eee;
+               /* background: #eee;*/
             }
             body {
                 font: 11px Verdana, Arial, sans-serif;
@@ -93,7 +93,6 @@ $hasMinorProblems = (bool) count($minorProblems);
                 width: 195px;
                 font-size: 12px;
                 border: 1px solid #dadada;
-                background: #fff url(data:image/gif;base64,R0lGODlhAQAFAKIAAPX19e/v7/39/fr6+urq6gAAAAAAAAAAACH5BAAAAAAALAAAAAABAAUAAAMESAEjCQA7) repeat-x left top;
                 padding: 5px 6px;
                 color: #565656;
             }

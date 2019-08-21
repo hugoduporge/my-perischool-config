@@ -37,6 +37,8 @@ framework:
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+    form_themes: ['bootstrap_4_layout.html.twig']
+
 
 # Doctrine Configuration
 doctrine:
@@ -71,3 +73,6 @@ swiftmailer:
 sensio_framework_extra:
    router:
         annotations: true
+
+webpack_encore:
+    output_path: "%kernel.root_dir%/../public/build/"

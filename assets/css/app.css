@@ -1,0 +1,70 @@
+@import url(https://fonts.googleapis.com/css?family=PT+Sans&display=swap);
+body{
+    background-color: #c8dafa !important;
+
+    font-family: 'PT Sans', sans-serif !important;
+}
+.error{
+    color:#ff7e6f;
+    font-size: 16px;
+    margin-top: 5px;
+    display: none;
+}
+.form-group{
+    font-size:16px;
+    font-weight: 500;
+}
+
+.btn-suivant{
+    margin-left : 90%;
+}
+.btn-suivant2{
+    margin-left: 80%;
+
+}
+.form-control{
+    width:10px;
+}
+.date-input{
+    width:30%;
+    font-size: 14px;
+}
+.card{
+    opacity: 0.99;
+    margin: 0 auto;
+    margin-top:1%;
+    box-shadow: 10px 10px 5px grey;
+    position: inherit;
+    width: 70%;
+}
+.card-body{
+    margin-left:1%
+}
+.numero-slide{
+    border-radius: 50%;
+    font-size: 40px;
+    font-family: Karla, sans-serif;
+    font-weight: bold;
+    color: #ffffff;
+    width: 70px;
+    height: 70px;
+    background-color: orangered;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    opacity: 0.5;
+}
+.titre-slide{
+    font-weight:bolder;
+}
+.bloc-titre-slide{
+    margin-top:1%;
+    margin-left:1%;
+}
+.control-label{
+    font-weight: bold;
+}
+
+
+
