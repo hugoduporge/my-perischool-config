@@ -2,14 +2,14 @@
 
     <div class="card-restriction-titre text-muted-2">
         Restriction
-        <div class="btn-supprimer-restriction" title="Cliquez ici pour supprimer cette restriction" style="color:red;font-weight: bolder">Supprimer<span class="far fa-times"></span></div>
+        <div class="btn-supprimer-restriction" title="Cliquez ici pour supprimer cette restriction" style="color:red;font-weight: bolder">x<span class="far fa-times"></span></div>
     </div>
 
     <div class="p-l-20 p-r-20 p-t-20 p-b-20">
 
         <div class="row">
             <div class="col-xs-6">
-                <label class="control-label required">Critère</label>
+                <label id="restriction-critere" class="control-label required">Critère</label>
                 <select class="form-control select-critere" name="restrictions[INDEX][critere]">
                     {% for critere in criteres %}
                         <option value="{{ critere.id }}">{{ critere.libelle }}</option>

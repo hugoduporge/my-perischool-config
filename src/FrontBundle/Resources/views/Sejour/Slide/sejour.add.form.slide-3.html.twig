@@ -1,32 +1,32 @@
-<div class="cards-restrictions">
+<div class="card rounded">
+    <div class="card-body">
+        <div id="titre-1" class="flex">
+            <div class="row block-titre">
+                <div class="numero-slide ">3</div>
+                <div class="bloc-titre-slide">
+                    <div class="titre-slide text-muted-2">Informations sur les restrictions de l'accueil de loisirs
+                    </div>
+                    <div class="ft-size-16 text-muted">Veuillez saisir les restrictions de l'accueil de
+                        loisirs.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <form id="form-slide3">
+            <div class="cards-restrictions row">
+                <button id="btn-ajout-card-restriction" type="button" class="btn btn-primary rounded">
+                    Ajouter une restriction
+                </button>
+                <div class="p-l-20 p-r-20 p-t-20 p-b-20 flex-10 " style="display: none;">
+                    <div class="restrictions-creneau row" data-index="0"></div>
+                    <div id="card-restriction-prototype"  class="row" data-prototype="{% filter escape %}{{ include('@Front/Sejour/Prototype/sejour.ajout.restriction.prototype.html.twig') }}{% endfilter %}"></div>
+                </div>
+            </div>
+            <button id="btn-slide-precedent-To2" type="button" class="btn btn-precedent btn-secondary btn-slide-precedent-Toslide2 rounded"> Précedent  </button>
 
-    <div id="btn-ajout-card-restriction" class="card-ajout-restriction text-muted-2" style="color:red">
-        <div class="far fa-plus m-b-20 icone-card-ajout-restriction text-palette-vert"></div>
-        <div>Ajouter une restriction</div>
-    </div>
+            <button id="btn-slide-suivant-To4" type="button" class="btn btn-suivant btn-primary btn-slide-suivant-Toslide4"> Suivant </button>
 
-</div>
-<div class="p-l-20 p-r-20 p-t-20 p-b-20 flex-10 " style="display: none;">
-
-    <div class="restrictions-creneau" data-index="0" ></div>
-    <div id="card-restriction-prototype" data-prototype="{% filter escape %}{{ include('@Front/Sejour/Prototype/sejour.ajout.restriction.prototype.html.twig') }}{% endfilter %}"></div>
-</div>
-
-<div class="row">
-    <div class="col-xs-12">
-        <button id="btn-slide-precedent-To2" type="button" class="btn btn-palette-vert btn-slide-precedent-Toslide2 to-right">
-            Précedent
-            <span class="far fa-arrow-right m-l-5"></span>
-        </button>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-xs-12">
-        <button id="btn-slide-suivant-To5" type="button"
-                class="btn btn-primary btn-slide-suivant-Toslide5 to-right">
-            Suivant
-            <span class="far fa-arrow-right m-l-5"></span>
-        </button>
+        </form>
     </div>
 </div>

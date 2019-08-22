@@ -1,18 +1,19 @@
+
+
 <div class="card rounded">
     <div class="card-body">
         <div id="titre-1" class="flex">
             <div class="row block-titre">
                 <div class="numero-slide ">2</div>
                 <div class="bloc-titre-slide">
-                    <div class="titre-slide text-muted-2">Informations générales de l'accueil de loisirs</div>
-                    <div class="ft-size-16 text-muted">Veuillez saisir les informations générales de l'accueil de
-                        loisirs dans le formulaire ci-dessous
+                    <div class="titre-slide text-muted-2">Informations sur les bus, aide au temps libre et mode de paiement.</div>
+                    <div class="ft-size-16 text-muted">Veuillez saisir les informations sur les bus, aide au temps libre et mode de paiement dans le formulaire ci-dessous
                     </div>
                 </div>
             </div>
         </div>
         <hr>
-        <form>
+        <form id="form-slide2">
             <div id="card-bloc-bus">
                 <div class="form-group">
                     <label class="control-label  required text-muted-2">Bus :</label>
@@ -35,6 +36,7 @@
                             </button>
                         </div>
 
+
                     </div>
                 </div>
 
@@ -46,14 +48,12 @@
                             <div id="bloc-atl" class="row" style="display: none;">
 
                                 <div id="bloc-montant-atl">
-                                     <div class="row">
-                                        <label class="control-label text-muted-2" for="montant-atl">Montant de l'aide au temps libre par demi-journée</label>
-                                        <input id="montant-atl" name="montantATL" class="required" type="text" maxlength="255" placeholder="Exemple : 1.50" required/>
-                                    </div>
-                                    <div class="row">
-                                        <label class="control-label required text-muted-2" for="demi-journees-atl">Nombre de demi-journées nécessaires pour bénéficier de l'ATL</label>
-                                        <input id="demi-journees-atl" type="number" name="demiJourneesATL" class="required" placeholder="Exemple : 4" min="1" max="100" step="1" required/>
-                                    </div>
+                                    <label class="control-label text-muted-2" for="montant-atl">Montant de l'aide au temps libre par demi-journée :</label>
+                                    <input id="montant-atl" name="montantATL" class="form-control" type="text" maxlength="255" placeholder="Exemple : 1.50" required/>
+                                </div>
+                                <div id="bloc-demi-journees-atl">
+                                    <label class="control-label  text-muted-2" for="demi-journees-atl">Nombre de demi-journées nécessaires pour bénéficier de l'ATL :</label>
+                                    <input id="demi-journees-atl" type="number" class="form-control" name="demiJourneesATL"  placeholder="Exemple : 4"  max="100" step="1" required/>
                                 </div>
                             </div>
                         </div>
@@ -61,30 +61,36 @@
                 </div>
                 <div class="form-group">
                     <div id="bloc-pxf">
-                        Paiement en plusieurs fois <input type="checkbox" id="myCheckPxF" onclick="displayPxF()">
+                        <label class="control-label text-muted-2">Paiement en plusieurs fois </label>
+                            <input type="checkbox" id="myCheckPxF" onclick="displayPxF()">
 
                         <div id="bloc-PxF" style="display: none;">
 
-                            <div id="bloc-paiement-plusieurs-fois" class="col-xs-12 col-lg-6 m-t-10">
-                                <label class="control-label required text-muted-2" for="nb-echeances">Nombre d'échéances
-                                    pour le paiement en plusieurs fois</label>
+                            <div id="bloc-paiement-plusieurs-fois">
+                                <label class="control-label  text-muted-2" for="nb-echeances">Nombre d'échéances
+                                    pour le paiement en plusieurs fois :</label>
                                 <input id="nb-echeances" name="nbEcheances" class="form-control" type="text"
-                                       maxlength="255" placeholder="Exemple : 3" required/>
+                                       maxlength="255" placeholder="Exemple : 3" required="required"/>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <div id="bloc-pmensuel">
-                        Paiement mensuel <input type="checkbox" id="myCheckPmensuel" onclick="displayPmensuel()">
+                        <label class="control-label">Paiement mensuel</label>
+                        <input type="checkbox" id="myCheckPmensuel" onclick="displayPmensuel()">
                     </div>
                 </div>
+            </div>
+            <div class="erreur-sur-bus" style="display:none;"> <b> Veuillez completer tous les arrets de bus. </b></div>
                 <button id="btn-slide-precedent-To1" type="button"
-                        class="btn btn-precedent-2 btn-secondary btn-slide-precedent-Toslide1 rounded"> Précedent
+                        class="btn btn-precedent btn-secondary btn-slide-precedent-Toslide1 rounded"> Précedent
                 </button>
-                <button id="btn-slide-suivant-To3" type="button" class="btn-test"> Suivant</button>
+            <button id="btn-slide-suivant-To3" type="button" class="btn btn-suivant btn-primary btn-slide-suivant-Toslide3"> Suivant </button>
 
 
         </form>
+
+    </div>
     </div>
 </div>
