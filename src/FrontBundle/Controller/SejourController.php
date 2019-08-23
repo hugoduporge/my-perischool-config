@@ -4,6 +4,7 @@
 namespace FrontBundle\Controller;
 
 use BusinessBundle\Managers\SejourManager;
+use Doctrine\DBAL\Types\DateType;
 use FrontBundle\Entity\Bus;
 use FrontBundle\Entity\CategorieTarif;
 use FrontBundle\Entity\Classe;
@@ -28,6 +29,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\DateType as DateTypeAlias;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
@@ -68,40 +71,39 @@ class SejourController extends Controller
 
     }
 
-/*
+
    /**
      * @Template("@Front/Sejour/sejour.edit.html.twig")
      * @Route("/sejour/edit/{id}", requirements={"id": "\d+"}, name ="sejour_edit")
      */
-    /* public function editSejourAction(Request $request , $id){
-         $sejour = new Sejour();
+     public function editSejourAction(Request $request , $id){
          $sejour = $this->getDoctrine()->getRepository(Sejour::class)->find($id);
 
-         $form = $this->createFormBuilder($sejour)
-             ->add('libelle', TextType::class, array('attr' =>
-                 array('class' => 'form-control')))
-             ->add('save', SubmitType::class, array(
-                 'label' => 'Valider',
-                 'attr' => array ('class '=> 'btn-sejour-add')
-             ))
-             ->getForm();
-
-         $form->handleRequest($request);
-
-         if($form->isSubmitted() && $form->isValid()){
-
-             $entityManager = $this->getDoctrine()->getManager();
-             $entityManager->flush();
-
-             return $this->redirectToRoute('sejour');
-         }
-
-         return $this->render('@Front/Sejour/sejour.edit.html.twig', array(
-             'form' => $form->createView()
-         ));
 
 
-     }*/
+         $criteres= $this->getDoctrine()->getRepository(Critere::class)->findAll();
+         $classes=$this->getDoctrine()->getRepository(Classe::class)->findAll();
+         $typeDocument=$this->getDoctrine()->getRepository(TypeDocument::class)->findAll();
+         $communes=$this->getDoctrine()->getRepository(Commune::class)->findAll();
+         $secteurs= $this->getDoctrine()->getRepository(Secteur::class)->findAll();
+         $crenaux=$this->getDoctrine()->getRepository(Crenaux::class)->findAll();
+         $quotients=$this->getDoctrine()->getRepository(TrancheQuotient::class)->findAll();
+         $categories=$this->getDoctrine()->getRepository(CategorieTarif::class)->findAll();
+         return ['sejour'=>$sejour,
+             'criteres' => $criteres,
+             'classes' => $classes,
+             'typesDocuments' => $typeDocument,
+             'communes' => $communes,
+             'secteurs' => $secteurs,
+             'crenaux' => $crenaux,
+             'quotients' => $quotients,
+             'categories' => $categories,
+         ];
+
+
+
+
+     }
 
 
     /**

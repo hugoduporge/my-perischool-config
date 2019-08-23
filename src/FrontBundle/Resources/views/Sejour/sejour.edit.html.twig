@@ -1,5 +1,67 @@
-{% block body %}
-    {{ form_start(form) }}
-    {{ form_widget(form) }}
-    {{ form_end(form) }}
+
+
+
+{%  block content %}
+    <div id="ajout">
+        {% include "@Front/Sejour/Slide/sejour.add.form.html.twig " %}
+    </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        /*SLIDE N1*/
+        $('#libelle-sejour').val('{{ sejour.libelle }}');
+        $('#date-ouverture-sejour').val('{{ sejour.date_Debut|date('Y-m-d') }}');
+        $('#date-fermeture-sejour').val('{{ sejour.dateFin|date('Y-m-d') }}');
+        $('#date-debut-inscriptions-ville').val('{{ sejour.dateDebutInscriptionsInterne|date('Y-m-d') }}');
+        $('#date-debut-inscriptions-exterieur').val('{{ sejour.dateDebutInscriptionsExterne|date('Y-m-d') }}');
+        $('#date-fin-inscriptions').val('{{ sejour.dateFinInscriptions|date('Y-m-d') }}');
+        {% if sejour.visible==1 %}
+        $('#myCheckVisible').prop('checked',true);
+        {% endif %}
+
+        {% if sejour.useCreditNote==1 %}
+        $('#myCheckAvoir').prop('checked',true);
+        {% endif %}
+
+        /*SLIDE N2*/
+        {% if sejour.atl==1 %}
+        $('#myCheckatl').prop('checked', true);
+        $('#bloc-atl').show();
+        $('#montant-atl').val('{{ sejour.montantAideAuTempsLibre }}');
+        $('#demi-journees-atl').val('{{ sejour.demiJourneesATL }}');
+        {% endif %}
+
+        {% if sejour.paiementPlusieursFois ==1 %}
+        $('#myCheckPxF').prop('checked',true);
+        $('#nb-echeances').val('{{ sejour.nbPaiementPlusieursFois }}');
+        $('#myCheckPmensuel').prop('checked',false);
+        {% endif %}
+
+        {% if sejour.paiementPlusieursFois ==1 %}
+        $('#myCheckPxF').prop('checked',true);
+        $('#bloc-paiement-plusieurs-fois').show();
+        $('#nb-echeances').show();
+        $('#nb-echeances').val('{{ sejour.nbPaiementPlusieursFois }}');
+        $('#myCheckPmensuel').prop('checked',false);
+        $('#bloc-pmensuel').hide();
+        {% endif %}
+
+        {% if sejour.paiementMensuel ==1 %}
+        $('#myCheckPmensuel').prop('checked',true);
+        $('#myCheckPxF').prop('checked',false);
+        $('#myCheckPxF').hide();
+        {% endif %}
+
+
+
+
+
+
+
+    });
+
+</script>
 {% endblock %}

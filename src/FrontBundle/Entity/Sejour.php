@@ -276,7 +276,7 @@ class Sejour
     /**
      * @return DateTime
      */
-    public function getDateDebut()
+    public function getDate_Debut()
     {
         return $this->dateDebut;
     }

@@ -11,9 +11,9 @@
         <tr>
             <td> {{ sejour.libelle }}</td>
             <td>
-{#
+
             <button class="btn-sejour-edit" ><a class="btn-sejour-edit" href={{ path('sejour_edit', { 'id' : sejour.id }) }} >éditer ce séjour</a></button>
-#}
+
             <button class="btn-sejour-delete" data-id="{{ sejour.id }}">supprimer ce séjour</button>
             </td>
         </tr>

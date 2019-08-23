@@ -96,7 +96,7 @@ body{
 .card-restriction{
     border: 1px solid #E3E3E3;
     border-radius: 10px;
-    width: 38%;
+    width: 40%;
     overflow: hidden;
     margin-right: 20px;
     margin-bottom: 20px;
@@ -255,4 +255,27 @@ body{
 }
 #date-slide1-2{
     margin-left: 10%;
+}
+#restriction-top{
+    margin-left:2%;
+}
+#restriction-bottom1{
+    width: 97%;
+    margin-left: 2%
+}
+#restriction-bottom2{
+    width: 97%;
+    margin-left: 2%
+}
+#restriction-bottom3{
+    width: 97%;
+    margin-left: 2%
+}
+#restriction-bottom4{
+    width: 97%;
+    margin-left: 2%
+}
+#restriction-bottom-title{
+    margin-left: 7%;
+    margin-top: 2%;
 }
