@@ -1,28 +1,58 @@
+{% include "@Front/Sejour/navbar.html.twig " %}
+{% block stylesheets %}
+    {# 'app' must match the first argument to addEntry() in webpack.config.js #}
+    {{ encore_entry_link_tags('app') }}
+
+    <!-- Renders a link tag (if your module requires any CSS)
+         <link rel="stylesheet" href="/build/app.css"> -->
+{% endblock %}
+
 {% block content %}
-<table id="sejours">
-    <thead>
-        <tr>
-            <th> Nom du séjour </th>
-            <th> Action </th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for sejour in sejours %}
-        <tr>
-            <td> {{ sejour.libelle }}</td>
-            <td>
+    <script src="https://kit.fontawesome.com/dac2f170c5.js"></script>
 
-            <button class="btn-sejour-edit" ><a class="btn-sejour-edit" href={{ path('sejour_edit', { 'id' : sejour.id }) }} >éditer ce séjour</a></button>
+    <body style="background-image: url('{{ asset('build/static/dessins_old.png') }}');background-attachment: fixed;">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-            <button class="btn-sejour-delete" data-id="{{ sejour.id }}">supprimer ce séjour</button>
-            </td>
-        </tr>
-    </tbody>
+    <div id="main-card" class="card rounded">
+        <div class="card-body">
+            <div id="titre-1" class="flex">
+                <div class="row block-titre">
+                    <div class="bloc-titre-slide">
+                        <h1 class=" mid titre-slide text-muted-2">Vos séjours</h1>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <table id="sejours">
+                <thead>
+                <tr>
+                    <th style="width: 75%;"> Nom du séjour</th>
+                    <th> Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for sejour in sejours %}
+                <tr>
+                    <td id="libelle_sejour" class="rounded"> {{ sejour.libelle }}</td>
+                    <td>
 
-    {% endfor %}
-</table>
-    <button class ="btn-sejour-add"><a href="{{ path('sejour_ajouter') }}">ajouter un séjour</a> </button>
-</body>
+                        <button class="btn-sejour-edit"><a class="btn-sejour-edit"
+                                                           href={{ path('sejour_edit', { 'id' : sejour.id }) }}><i class="fas fa-edit"></i></a></button>
+
+                        <button class="btn-sejour-delete" data-id="{{ sejour.id }}"><i class="fas fa-trash-alt"></i></button>
+                    </td>
+                </tr>
+                </tbody>
+
+                {% endfor %}
+            </table>
+            <button class="btn-sejour-add"><a href="{{ path('sejour_ajouter') }}"><i class="fas fa-plus-circle"></i>
+
+                </a></button>
+        </div>
+    </div>
+    </body>
+
 </html>
 {% endblock %}
 

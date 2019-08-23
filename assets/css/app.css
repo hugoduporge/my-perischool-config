@@ -279,3 +279,22 @@ body{
     margin-left: 7%;
     margin-top: 2%;
 }
+#libelle_sejour{
+    border-radius: 50%;
+    font-size: 15px;
+    font-family: Karla, sans-serif;
+    font-weight: bold;
+    color: #1924b5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    opacity: 0.5;
+
+}
+
+#main-card{
+    width: 40%;
+}
+.mid{
+}
