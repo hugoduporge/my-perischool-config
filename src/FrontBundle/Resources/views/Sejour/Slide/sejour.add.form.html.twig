@@ -113,6 +113,7 @@
 
         jQuery.extend(jQuery.validator.messages, {
             required: "Ce champ est obligatoire.",
+            number: "Veuillez renseigner un nombre valide.",
         });
 
     $(document).ready(function() {
@@ -129,8 +130,7 @@
             var arretBusLength = $('.arret-bus').length;
             var paiementMensuel = $('input[id="myCheckPmensuel"]:checked').val();
             var paiementXFois = $('input[id="myCheckPxF"]:checked').val();
-            var BusContentLibelle = new Array();
-            var BusContentHoraire = new Array();
+            var listbusAjax= listbusAjax;
             var nbEcheances = $('#nb-echeances').val();
             var aideTempsLibre = $('input[id="myCheckatl"]:checked').val();
             var montantAtl = $('#montant-atl').val();
@@ -210,13 +210,11 @@
                         arretBusLength: arretBusLength,
                         paiementMensuel: paiementMensuel,
                         paiementXFois: paiementXFois,
-                        BusContentLibelle: BusContentLibelle,
-                        BusContentHoraire: BusContentHoraire,
                         nbEcheances: nbEcheances,
                         aideTempsLibre: aideTempsLibre,
                         montantAtl: montantAtl,
                         nbDemiJoursAtl: nbDemiJoursAtl,
-                        listBus: listBus,
+                        listbusAjax:listbusAjax,
                         restrictions: restrictions,
                         journeesTop: journeesTop,
                         villes: villes,
@@ -225,7 +223,7 @@
                     },
                     success: function () {
                         console.log('okAjax');
-                        console.log(listBus);
+                        window.location.href=("{{ path('sejour') }}");
                     }, error: function () {
                         console.log('koAjax');
                     }
@@ -240,11 +238,8 @@
 
         $('.btn-slide-suivant-Toslide2').on('click', function () {
             if (formAbonnement.valid()) {
-                console.log('form valid');
                 $('#slide1').hide();
                 $('#slide2').show();
-            }else{
-                console.log('form invalid');
             }
         });
         $('.btn-slide-precedent-Toslide1').on('click', function () {
@@ -254,47 +249,56 @@
         });
 
         $('.btn-slide-suivant-Toslide3').on('click', function () {
-            var BusContentLibelle=[];
-            var BusContentHoraire=[];
-            $('.arretBusLibelle').each(function (index, element) {
-                if($(this).val() !== ""){
-                BusContentLibelle.push($(element).val());
-                }
-
-            });
-            $('.arretBusHoraire').each(function (index, element) {
-                if($(this).val() !== ""){
-                    BusContentHoraire.push($(element).val());
-                }
-            });
-            if(BusContentLibelle.length !== BusContentHoraire.length){
-                $('.erreur-sur-bus').show();
-            }else {
-                var tmp= BusContentHoraire.length;
-                console.log(BusContentHoraire, BusContentHoraire.length);
-                console.log(BusContentLibelle, BusContentLibelle.length);
-                console.log('----------------');
-                var listBus = new Array();
-
-               for(var index=1; index <= tmp; index++) {
-                   listBus.push({
-                       libelle: BusContentLibelle[index],
-                       hour: BusContentHoraire[index]
-                   })
-               }
-                console.log(listBus);
-            }
-            if(listBus.length === nbArretsBus) {
-                if ($('#form-slide2').valid()) {
+            if($('input[id="myCheckBus"]:checked').length === 0 ){
+                if($('#form-slide2').valid()){
                     $('#slide2').hide();
                     $('#slide3').show();
-                    console.log('form valid');
-                } else {
-                    console.log('form invalid');
                 }
-            }else
-                {$('.erreur-sur-bus').show();
+            }else if($('input[id="myCheckBus"]:checked').length > 0 ){
+                var BusContentLibelle= [];
+                var BusContentHoraire= [];
+                var listBus= new Array();
+
+                $('.arretBusLibelle').each(function(){
+                    if($(this).val() !== "") {
+                        BusContentLibelle.push($(this).val());
+                    }
+                });
+
+                $('.arretBusHoraire').each(function(){
+                    if($(this).val() !== "") {
+                        BusContentHoraire.push($(this).val());
+                    }
+                });
+
+                if(BusContentHoraire.length !== BusContentLibelle.length){
+                    $('.erreur-sur-bus').show();
+                }else{
+                    for(var index=0; index <BusContentLibelle.length; index++){
+                        listBus.push({
+                            libelle:BusContentLibelle[index],
+                            hour: BusContentHoraire[index],
+                        })
+                    }
+                    if(listBus.length !== nbArretsBus){
+                        $('.erreur-sur-bus').show();
+                    }else{
+                        if($('#form-slide2').valid()){
+                            $('.erreur-sur-bus').hide();
+                            $('#slide2').hide();
+                            $('#slide3').show();
+                        }
+                    }
+                }
             }
+        });
+
+        $('#slide2').on('change', function(){
+           $('.erreur-sur-bus').hide();
+        });
+
+        $('.checkbox-day-no').on('click', function(){
+            $('.erreur-no-checkable').show();
         });
         $('.btn-slide-precedent-Toslide2').on('click', function () {
             $('#slide3').hide();
@@ -313,31 +317,23 @@
         });
 
         $('#btn-slide-suivant-To5').on('click', function () {
-            console.log('bouton pour passer au slide 5');
-
             if ($('#form-slide4').valid()) {
-                journee=[];
-                var dateDebut=moment(($('#date-ouverture-sejour').val()));
-                var dateFin=moment(($('#date-fermeture-sejour').val()));
                 $('#slide4').hide();
                 $('#slide5').show();
+                traitementCreneauxVersSecteurs();
+            }
 
-                while(dateDebut<=dateFin) {
-                    journee.push(dateDebut);
-                    dateDebut = moment(dateDebut).add(1, 'day');
-                }
-                console.log('journee',journee);
-            }traitementCreneauxVersSecteurs();
+
 
         });
         $('.btn-slide-precedent-Toslide4').on('click', function () {
             $('#slide4').show();
             $('#slide5').hide();
+            $('.checkbox-journees-entier').empty();
+
         });
 
         $('.btn-slide-suivant-Toslide6').on('click', function(){
-
-            console.log('bouton pour passer au slide 6');
             journeesTop = journeesEntier;
             var countError=0;
 
@@ -365,8 +361,6 @@
                 }else{
                     console.log('form pas ok');
                 }
-                traitementJeuxTarifs();
-                afficheJeuxTarifsEntiersMatinApresMidiJournee();
             });
 
         });
@@ -410,6 +404,8 @@
         });
         $(document).on('click', '.btn-supprimer-arret-bus', function () {
             $(this).parent().remove();
+            nbArretsBus--;
+            console.log(nbArretsBus);
         });
 
 /*-----------------------------------------------------Partie Restrictions JS-----------------------------------------------------*/
@@ -564,7 +560,7 @@
             $('.card-creneau-entier[data-creneau="2"]').hide();
 
             journeesEntier = journeesEntreDeuxDates(($('#date-ouverture-sejour').val()),($('#date-fermeture-sejour').val()));
-            console.log(journeesEntier)
+            console.log(journeesEntier);
 
             /*if ($('#checkbox-all').is(':checked')){
                 $('#bloc-creneaux-entiers').show();
@@ -582,33 +578,32 @@
                 }
             }else*/
 
-            if($('#checkbox-day').is(':checked')){
-                $('#bloc-creneaux-entiers').show();
-                    $.each(journeesEntier, function(indexJournee, journee) {
-                        $('.checkbox-journees-entier').append('<div class=\'checkbox-journee-entier checkbox-journee-entier-selectionne\'  data-journee='+ indexJournee +' >\n ' +
-                            '                           <div class=\'check-journee-entier\'>\n   ' +
-                            '                             <span class=\'fas fa-check\'></span>\n   ' +
-                            '                         </div><div class=\'contenu-day\' </div>\n      '+
-                            '                      <div class=libelle-journee-entier>' + journee.jour + ' <input id="testCheckBox" name="checkboxEntierDay['+indexJournee +']" type=checkbox' +
-                            ' style="" checked/></div><hr>\n  ' +
-                            '                <button id="btn-ajout-secteur" type="button" name="btn-ajout-secteur-creneau-entier['+indexJournee +']" class="btn btn-primary rounded btn-ajout-secteur-creneau-entier" data-creneau="0" data-journee='+ indexJournee +' >\n' +
-                            '                    <span class="far fa-plus m-r-5"></span>\n' +
-                            '                    Ajouter un secteur\n' +
-                            '                </button>\n' +
-                            '             ');
-                        $('input[name^="checkboxEntierDay['+indexJournee+']"]').change(function(){
-                            if($(this).is(':checked') === true){
-                                console.log('checked');
-                                $(this).closest($('button[name="btn-ajout-secteur-creneau-entier['+indexJournee+']"]').show());
-                            }
-                            else{
-                                console.log('unchecked');
-                                $(this).closest($('div[name="m-b-15['+indexJournee+']"]').hide());
-                                $(this).closest($('button[name="btn-ajout-secteur-creneau-entier['+indexJournee+']"]').hide());
-                            }
-                        });
+            $('#bloc-creneaux-entiers').show();
+                $.each(journeesEntier, function(indexJournee, journee) {
+                    $('.checkbox-journees-entier').append('<div class=\'checkbox-journee-entier checkbox-journee-entier-selectionne\'  data-journee='+ indexJournee +' >\n ' +
+                        '                           <div class=\'check-journee-entier\'>\n   ' +
+                        '                             <span class=\'fas fa-check\'></span>\n   ' +
+                        '                         </div><div class=\'contenu-day\' </div>\n      '+
+                        '                      <div class=libelle-journee-entier>' + journee.jour + ' <input id="testCheckBox" name="checkboxEntierDay['+indexJournee +']" type=checkbox' +
+                        ' style="" checked/></div><hr>\n  ' +
+                        '                <button id="btn-ajout-secteur" type="button" name="btn-ajout-secteur-creneau-entier['+indexJournee +']" class="btn btn-primary rounded btn-ajout-secteur-creneau-entier" data-creneau="0" data-journee='+ indexJournee +' >\n' +
+                        '                    <span class="far fa-plus m-r-5"></span>\n' +
+                        '                    Ajouter un secteur\n' +
+                        '                </button>\n' +
+                        '             ');
+                    $('input[name^="checkboxEntierDay['+indexJournee+']"]').change(function(){
+                        if($(this).is(':checked') === true){
+                            console.log('checked');
+                            $(this).closest($('button[name="btn-ajout-secteur-creneau-entier['+indexJournee+']"]').show());
+                        }
+                        else{
+                            console.log('unchecked');
+                            $(this).closest($('div[name="m-b-15['+indexJournee+']"]').hide());
+                            $(this).closest($('button[name="btn-ajout-secteur-creneau-entier['+indexJournee+']"]').hide());
+                        }
                     });
-            }
+                });
+
         }
         /*------------------------------------------------------------------------------------------------------------------------------------*/
 

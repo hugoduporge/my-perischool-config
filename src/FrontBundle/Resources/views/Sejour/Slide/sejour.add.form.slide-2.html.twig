@@ -16,13 +16,12 @@
         <form id="form-slide2">
             <div id="card-bloc-bus">
                 <div class="form-group">
-                    <label class="control-label  required text-muted-2">Bus :</label>
+                    <label class="control-label  text-muted-2">Bus </label>
                     <input type="checkbox" id="myCheckBus" onclick="displayBus()">
                     <div id="bloc-bus" style="display: none;">
                         <div class="sous-titre-ajout-sejour m-t-30 m-b-30">
                             <div class="fas fa-circle text-palette-violet m-r-30"></div>
                             <div>
-                                <div class="ft-size-16 text-muted-2">Arrêts de bus</div>
                                 <div id="info-bus" class="ft-size-14 text-muted">Au moins un arrêt de bus est requis.
                                     Cliquez sur le bouton <b>Ajouter un arrêt de bus</b> pour en ajouter davantage.
                                     Cliquez sur la croix d'un arrêt de bus pour le supprimer.
@@ -43,16 +42,16 @@
 
                 <div class="form-group">
                     <div id="card-bloc-atl">
-                        <div class="control-label"> ATL : <input type="checkbox" id="myCheckatl" onclick="displayatl()">
+                        <div class="control-label"> ATL <input type="checkbox" id="myCheckatl" onclick="displayatl()">
 
                             <div id="bloc-atl" class="row" style="display: none;">
 
                                 <div id="bloc-montant-atl">
-                                    <label class="control-label text-muted-2" for="montant-atl">Montant de l'aide au temps libre par demi-journée :</label>
-                                    <input id="montant-atl" name="montantATL" class="form-control" type="text" maxlength="255" placeholder="Exemple : 1.50" required/>
+                                    <label class="required control-label text-muted-2" for="montant-atl">Montant de l'aide au temps libre par demi-journée </label>
+                                    <input id="montant-atl" name="montantATL" class="form-control" type="number" maxlength="255" placeholder="Exemple : 1.50" required/>
                                 </div>
                                 <div id="bloc-demi-journees-atl">
-                                    <label class="control-label  text-muted-2" for="demi-journees-atl">Nombre de demi-journées nécessaires pour bénéficier de l'ATL :</label>
+                                    <label class="required control-label  text-muted-2" for="demi-journees-atl">Nombre de demi-journées nécessaires pour bénéficier de l'ATL </label>
                                     <input id="demi-journees-atl" type="number" class="form-control" name="demiJourneesATL"  placeholder="Exemple : 4"  max="100" step="1" required/>
                                 </div>
                             </div>
@@ -67,10 +66,10 @@
                         <div id="bloc-PxF" style="display: none;">
 
                             <div id="bloc-paiement-plusieurs-fois">
-                                <label class="control-label  text-muted-2" for="nb-echeances">Nombre d'échéances
-                                    pour le paiement en plusieurs fois :</label>
+                                <label class=" required control-label  text-muted-2" for="nb-echeances">Nombre d'échéances
+                                    pour le paiement en plusieurs fois </label>
                                 <input id="nb-echeances" name="nbEcheances" class="form-control" type="text"
-                                       maxlength="255" placeholder="Exemple : 3" required="required"/>
+                                       maxlength="255" placeholder="Exemple : 3" required/>
                             </div>
                         </div>
                     </div>
@@ -82,7 +81,7 @@
                     </div>
                 </div>
             </div>
-            <div class="erreur-sur-bus" style="display:none;"> <b> Veuillez completer tous les arrets de bus. </b></div>
+            <div class="erreur-sur-bus" style="display:none;"> <b> Veuillez completer tous les noms ainsi que les horaires des arrêts de bus demandés. </b></div>
                 <button id="btn-slide-precedent-To1" type="button"
                         class="btn btn-precedent btn-secondary btn-slide-precedent-Toslide1 rounded"> Précedent
                 </button>

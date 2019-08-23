@@ -168,7 +168,7 @@ class SejourController extends Controller
 
 
         /*PARTIE BUS*/
-        $listBus= $request->get('listBus');
+        $listBus= $request->get('listBusAjax');
         if(!empty($listBus)) {
             $sejour->setBus(true);
             foreach ($listBus as $i) {

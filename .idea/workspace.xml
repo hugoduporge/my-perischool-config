@@ -2,25 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ad91f80e-fc3c-44b9-8638-fda904cc9657" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-X.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/my_perischool_config.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/my_perischool_config.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/FrontBundle/Controller/SejourController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/FrontBundle/Controller/SejourController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Prototype/sejour.ajout.jeu-tarif.prototype.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Prototype/sejour.ajout.jeu-tarif.prototype.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Prototype/sejour.ajout.restriction.prototype.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Prototype/sejour.ajout.restriction.prototype.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Prototype/sejour.ajout.secteur-entier.prototype.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Prototype/sejour.ajout.secteur-entier.prototype.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Prototype/sejour.ajout.ville-partenaire.prototype.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Prototype/sejour.ajout.ville-partenaire.prototype.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-1.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-1.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-2.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-2.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-3.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-3.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-4.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-4.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-5.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-5.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-6.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-6.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-7.html.twig" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/web/build/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/build/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/build/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/web/build/manifest.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -90,41 +81,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="518">
-              <caret line="278" column="30" selection-start-line="278" selection-start-column="30" selection-end-line="278" selection-end-column="30" />
-              <folding>
-                <element signature="n#style#0;n#body#0;n#!!top" expanded="true" />
-                <element signature="e#11050#11284#0#HTML" />
-                <element signature="e#11261#11339#0#HTML" />
-                <element signature="e#12178#12255#0#HTML" />
-                <element signature="e#12535#12612#0#HTML" />
-                <element signature="e#12133#12210#0#HTML" />
-                <element signature="e#13981#14126#0#HTML" />
-                <element signature="e#14173#14226#0#HTML" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="das://34a918ac-4c0b-4ffc-b466-c9629f777ed8/database/MPSConfig_2/schema/public/table/sejour">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state projectRestartId="35242cf9-ad55-4e32-95a8-b94dfb9608e8">
-              <filtering>
-                <filter text="" />
-              </filtering>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-X.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="529">
-              <caret line="55" column="83" selection-start-line="55" selection-start-column="83" selection-end-line="55" selection-end-column="83" />
+            <state relative-caret-position="268">
+              <caret line="286" column="56" selection-start-line="286" selection-start-column="56" selection-end-line="286" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -132,8 +93,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-1.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
-              <caret line="67" selection-start-line="67" selection-end-line="67" />
+            <state relative-caret-position="629">
+              <caret line="40" column="22" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#2;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -141,30 +105,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/css/app.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="784">
-              <caret line="91" column="23" selection-start-line="91" selection-start-column="23" selection-end-line="91" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-2.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="84" column="114" selection-start-line="84" selection-start-column="114" selection-end-line="84" selection-end-column="114" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-3.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="27" column="122" selection-start-line="27" selection-start-column="122" selection-end-line="27" selection-end-column="122" />
+            <state relative-caret-position="227">
+              <caret line="256" column="19" selection-start-line="256" selection-start-column="19" selection-end-line="256" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -172,29 +114,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-4.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+            <state relative-caret-position="167">
+              <caret line="47" column="149" selection-start-line="47" selection-start-column="149" selection-end-line="47" selection-end-column="149" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-5.html.twig">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-2.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="46" selection-start-line="46" selection-end-line="46" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-6.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="430">
-              <caret line="31" column="55" selection-start-line="31" selection-start-column="55" selection-end-line="31" selection-end-column="55" />
+            <state relative-caret-position="115">
+              <caret line="24" selection-start-line="24" selection-end-line="24" />
             </state>
           </provider>
         </entry>
@@ -210,29 +140,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>checkbo</find>
-      <find>preceden</find>
-      <find>Ajoute</find>
-      <find>ceux</find>
-      <find>button</find>
-      <find>ajouter un secteur</find>
-      <find>libelle-journee-entier</find>
-      <find>libelle</find>
-      <find>btn-supprimer-jeu-tarif</find>
-      <find>Aide</find>
-      <find>row m-b-15</find>
-      <find>quoti</find>
-      <find>card-restriction-titre</find>
-      <find>jquer</find>
-      <find>suiva</find>
-      <find>suivan</find>
-      <find>suiv</find>
-      <find>suivant-Toslide4</find>
-      <find>btn-slide-suivant-Toslide5</find>
-      <find>suivant</find>
-      <find>btn-slide-suivant-Toslide6</find>
-      <find>demi-journees-atl-error</find>
-      <find>bold</find>
       <find>err</find>
       <find>bloc</find>
       <find>pro</find>
@@ -240,6 +147,29 @@
       <find>Bus</find>
       <find>valider</find>
       <find>BusContentLibelle</find>
+      <find>document</find>
+      <find>erreur-sur</find>
+      <find>sur chacun</find>
+      <find>no-ch</find>
+      <find>btn-valider</find>
+      <find>ce cham</find>
+      <find>Ce</find>
+      <find>this fil</find>
+      <find>class=&quot;checkbox-day</find>
+      <find>precedent-Toslide4</find>
+      <find>haque créneau sélectionné doit posséder un secteur</find>
+      <find>monte</find>
+      <find>libelle de la</find>
+      <find>Chaque créneau sélectionné doit posséder un secteur. Veuillez corriger les créneaux sans secteur ou décocher les créneaux non voulus.</find>
+      <find>supprimer</find>
+      <find>e</find>
+      <find>checked</find>
+      <find>console</find>
+      <find>date-ou</find>
+      <find>date-fin</find>
+      <find>sur cha</find>
+      <find>fin</find>
+      <find>suivant</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -258,7 +188,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/FrontBundle/Repository/SecteurRepository.php" />
         <option value="$PROJECT_DIR$/src/FrontBundle/Entity/test.php" />
         <option value="$PROJECT_DIR$/src/FrontBundle/Entity/Critere.php" />
         <option value="$PROJECT_DIR$/src/FrontBundle/Entity/Classe.php" />
@@ -282,7 +211,6 @@
         <option value="$PROJECT_DIR$/src/FrontBundle/Entity/TrancheQuotient.php" />
         <option value="$PROJECT_DIR$/src/FrontBundle/Entity/CategorieTarif.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
-        <option value="$PROJECT_DIR$/src/FrontBundle/Controller/SejourController.php" />
         <option value="$PROJECT_DIR$/var/cache/dev/twig/c2/c2f3b685b0e239e71518ef5df562e6739c0e2b0a3a9ee2e145a7947859073e2a.php" />
         <option value="$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Prototype/sejour.ajout.btn-ajout-jeu-tarif.prototype.html.twig" />
         <option value="$PROJECT_DIR$/composer.json" />
@@ -300,15 +228,17 @@
         <option value="$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Prototype/sejour.ajout.ville-partenaire.prototype.html.twig" />
         <option value="$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Prototype/sejour.ajout.secteur-entier.prototype.html.twig" />
         <option value="$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-7.html.twig" />
+        <option value="$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-3.html.twig" />
+        <option value="$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-6.html.twig" />
+        <option value="$PROJECT_DIR$/src/FrontBundle/Controller/SejourController.php" />
+        <option value="$APPLICATION_CONFIG_DIR$/javascript/extLibs/http_cdn.jsdelivr.net_npm_jquery-validation@1.19.1_dist_jquery.validate.js" />
+        <option value="$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-5.html.twig" />
         <option value="$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Prototype/sejour.ajout.jeu-tarif.prototype.html.twig" />
         <option value="$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-1.html.twig" />
-        <option value="$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-3.html.twig" />
         <option value="$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-4.html.twig" />
-        <option value="$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-5.html.twig" />
-        <option value="$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-6.html.twig" />
         <option value="$PROJECT_DIR$/assets/css/app.css" />
-        <option value="$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-2.html.twig" />
         <option value="$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.html.twig" />
+        <option value="$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-2.html.twig" />
       </list>
     </option>
   </component>
@@ -588,6 +518,8 @@
       <workItem from="1566284649102" duration="22689000" />
       <workItem from="1566371220797" duration="23709000" />
       <workItem from="1566457778142" duration="23736000" />
+      <workItem from="1566489470413" duration="65000" />
+      <workItem from="1566543833744" duration="10044000" />
     </task>
     <task id="LOCAL-00001" summary="-ajout css">
       <created>1566403259376</created>
@@ -596,17 +528,24 @@
       <option name="project" value="LOCAL" />
       <updated>1566403259376</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="-fin css">
+      <created>1566489503840</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1566489503840</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="326981000" />
+    <option name="totallyTimeSpent" value="337090000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49889624" visible="true" weight="0.2549168" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49889624" visible="true" weight="0.37443268" />
       <window_info id="Structure" order="1" sideWeight="0.50110376" side_tool="true" weight="0.21104388" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -620,13 +559,13 @@
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.3289689" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49924356" visible="true" weight="0.1898527" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49924356" visible="true" weight="0.30441898" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.50075644" side_tool="true" weight="0.34369886" />
       <window_info anchor="bottom" id="TypeScript" order="13" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24962178" />
-      <window_info active="true" anchor="right" id="Database" order="3" visible="true" weight="0.22012103" />
+      <window_info anchor="right" id="Database" order="3" visible="true" weight="0.022692889" />
     </layout>
     <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49889624" visible="true" weight="0.2549168" />
@@ -657,18 +596,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="-ajout css" />
-    <option name="LAST_COMMIT_MESSAGE" value="-ajout css" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.html.twig</url>
-          <line>337</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="-fin css" />
+    <option name="LAST_COMMIT_MESSAGE" value="-fin css" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/config/config_dev.yml">
@@ -693,9 +622,7 @@
         <state relative-caret-position="-153" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/build/images/dessins_old.cf489fa7.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/web/build/images/dessins_old.cf489fa7.png" />
     <entry file="file://$PROJECT_DIR$/web/build/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="376">
@@ -733,13 +660,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/sejour.add.html.twig">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FrontBundle/Resources/views/index.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/composer.lock">
       <provider selected="true" editor-type-id="text-editor" />
@@ -787,11 +707,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Temp/7zOCE2DDCC0/solid.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-51" />
-      </provider>
-    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Temp/7zOCE2DDCC0/solid.css" />
     <entry file="file://$PROJECT_DIR$/web/build/app.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
@@ -813,13 +729,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FrontBundle/Controller/SejourController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="73" column="22" selection-start-line="73" selection-start-column="22" selection-end-line="73" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Prototype/sejour.ajout.secteur-entier.prototype.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -827,46 +736,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Prototype/sejour.ajout.jeu-tarif.prototype.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="53">
-          <caret line="46" column="54" selection-start-line="46" selection-start-column="54" selection-end-line="46" selection-end-column="54" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="das://34a918ac-4c0b-4ffc-b466-c9629f777ed8/database/MPSConfig_2/schema/public/table/bus">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="35242cf9-ad55-4e32-95a8-b94dfb9608e8">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://34a918ac-4c0b-4ffc-b466-c9629f777ed8/database/MPSConfig_2/schema/public/table/categorie_tarif">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="35242cf9-ad55-4e32-95a8-b94dfb9608e8">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://34a918ac-4c0b-4ffc-b466-c9629f777ed8/database/MPSConfig_2/schema/public/table/classe">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="35242cf9-ad55-4e32-95a8-b94dfb9608e8">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://34a918ac-4c0b-4ffc-b466-c9629f777ed8/database/MPSConfig_2/schema/public/table/commune">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state projectRestartId="35242cf9-ad55-4e32-95a8-b94dfb9608e8">
           <filtering>
@@ -884,18 +754,86 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://34a918ac-4c0b-4ffc-b466-c9629f777ed8/database/MPSConfig_2/schema/public/table/crenaux">
+    <entry file="file://$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-X.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="935">
+          <caret line="55" column="83" selection-start-line="55" selection-start-column="83" selection-end-line="55" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-5.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="46" selection-start-line="46" selection-end-line="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-6.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="31" column="55" selection-start-line="31" selection-start-column="55" selection-end-line="31" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/extLibs/http_cdn.jsdelivr.net_npm_jquery-validation@1.19.1_dist_jquery.validate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="368" column="43" lean-forward="true" selection-start-line="368" selection-start-column="43" selection-end-line="368" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Prototype/sejour.ajout.jeu-tarif.prototype.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="53" column="30" selection-start-line="53" selection-start-column="30" selection-end-line="53" selection-end-column="30" />
+          <folding>
+            <element signature="n#style#0;n#input#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-3.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="27" column="122" selection-start-line="27" selection-start-column="122" selection-end-line="27" selection-end-column="122" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FrontBundle/Resources/views/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="38" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FrontBundle/Controller/SejourController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3060">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://34a918ac-4c0b-4ffc-b466-c9629f777ed8/database/MPSConfig_2/schema/public/table/ville_partenaire">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="35242cf9-ad55-4e32-95a8-b94dfb9608e8">
+        <state projectRestartId="6ec77551-1c86-4611-addf-dcc5105c2666">
           <filtering>
             <filter text="" />
           </filtering>
         </state>
       </provider>
     </entry>
-    <entry file="das://34a918ac-4c0b-4ffc-b466-c9629f777ed8/database/MPSConfig_2/schema/public/table/critere">
+    <entry file="das://34a918ac-4c0b-4ffc-b466-c9629f777ed8/database/MPSConfig_2/schema/public/table/type_document">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="35242cf9-ad55-4e32-95a8-b94dfb9608e8">
+        <state projectRestartId="6ec77551-1c86-4611-addf-dcc5105c2666">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://34a918ac-4c0b-4ffc-b466-c9629f777ed8/database/MPSConfig_2/schema/public/table/tranche_quotient">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="6ec77551-1c86-4611-addf-dcc5105c2666">
           <filtering>
             <filter text="" />
           </filtering>
@@ -904,7 +842,7 @@
     </entry>
     <entry file="das://34a918ac-4c0b-4ffc-b466-c9629f777ed8/database/MPSConfig_2/schema/public/table/restriction">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="35242cf9-ad55-4e32-95a8-b94dfb9608e8">
+        <state projectRestartId="6ec77551-1c86-4611-addf-dcc5105c2666">
           <filtering>
             <filter text="" />
           </filtering>
@@ -915,144 +853,113 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://34a918ac-4c0b-4ffc-b466-c9629f777ed8/database/MPSConfig_2/schema/public/table/secteur">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="35242cf9-ad55-4e32-95a8-b94dfb9608e8">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
     <entry file="das://34a918ac-4c0b-4ffc-b466-c9629f777ed8/database/MPSConfig_2/schema/public/table/journee_secteur">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="35242cf9-ad55-4e32-95a8-b94dfb9608e8">
+        <state projectRestartId="6ec77551-1c86-4611-addf-dcc5105c2666">
           <filtering>
             <filter text="" />
           </filtering>
         </state>
       </provider>
     </entry>
-    <entry file="das://34a918ac-4c0b-4ffc-b466-c9629f777ed8/database/MPSConfig_2/schema/public/table/ville_partenaire">
+    <entry file="das://34a918ac-4c0b-4ffc-b466-c9629f777ed8/database/MPSConfig_2/schema/public/table/critere">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="35242cf9-ad55-4e32-95a8-b94dfb9608e8">
+        <state projectRestartId="6ec77551-1c86-4611-addf-dcc5105c2666">
           <filtering>
             <filter text="" />
           </filtering>
         </state>
       </provider>
     </entry>
-    <entry file="das://34a918ac-4c0b-4ffc-b466-c9629f777ed8/database/MPSConfig_2/schema/public/table/type_document">
+    <entry file="das://34a918ac-4c0b-4ffc-b466-c9629f777ed8/database/MPSConfig_2/schema/public/table/crenaux">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="35242cf9-ad55-4e32-95a8-b94dfb9608e8">
+        <state projectRestartId="6ec77551-1c86-4611-addf-dcc5105c2666">
           <filtering>
             <filter text="" />
           </filtering>
         </state>
       </provider>
     </entry>
-    <entry file="das://34a918ac-4c0b-4ffc-b466-c9629f777ed8/database/MPSConfig_2/schema/public/table/tranche_quotient">
+    <entry file="das://34a918ac-4c0b-4ffc-b466-c9629f777ed8/database/MPSConfig_2/schema/public/table/commune">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="35242cf9-ad55-4e32-95a8-b94dfb9608e8">
+        <state projectRestartId="6ec77551-1c86-4611-addf-dcc5105c2666">
           <filtering>
             <filter text="" />
           </filtering>
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/javascript/extLibs/http_cdn.jsdelivr.net_npm_jquery-validation@1.19.1_dist_jquery.validate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="569">
-          <caret line="129" column="25" selection-start-line="129" selection-start-column="25" selection-end-line="129" selection-end-column="25" />
+    <entry file="das://34a918ac-4c0b-4ffc-b466-c9629f777ed8/database/MPSConfig_2/schema/public/table/classe">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="6ec77551-1c86-4611-addf-dcc5105c2666">
+          <filtering>
+            <filter text="" />
+          </filtering>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-1.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="67" selection-start-line="67" selection-end-line="67" />
+    <entry file="das://34a918ac-4c0b-4ffc-b466-c9629f777ed8/database/MPSConfig_2/schema/public/table/categorie_tarif">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="6ec77551-1c86-4611-addf-dcc5105c2666">
+          <filtering>
+            <filter text="" />
+          </filtering>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-3.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="27" column="122" selection-start-line="27" selection-start-column="122" selection-end-line="27" selection-end-column="122" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-4.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-6.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="430">
-          <caret line="31" column="55" selection-start-line="31" selection-start-column="55" selection-end-line="31" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-5.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="46" selection-start-line="46" selection-end-line="46" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/app.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="784">
-          <caret line="91" column="23" selection-start-line="91" selection-start-column="23" selection-end-line="91" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-X.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="55" column="83" selection-start-line="55" selection-start-column="83" selection-end-line="55" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-2.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="84" column="114" selection-start-line="84" selection-start-column="114" selection-end-line="84" selection-end-column="114" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
+    <entry file="das://34a918ac-4c0b-4ffc-b466-c9629f777ed8/database/MPSConfig_2/schema/public/table/secteur">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="6ec77551-1c86-4611-addf-dcc5105c2666">
+          <filtering>
+            <filter text="" />
+          </filtering>
         </state>
       </provider>
     </entry>
     <entry file="das://34a918ac-4c0b-4ffc-b466-c9629f777ed8/database/MPSConfig_2/schema/public/table/sejour">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="35242cf9-ad55-4e32-95a8-b94dfb9608e8">
+        <state projectRestartId="6ec77551-1c86-4611-addf-dcc5105c2666">
           <filtering>
             <filter text="" />
           </filtering>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-4.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="47" column="149" selection-start-line="47" selection-start-column="149" selection-end-line="47" selection-end-column="149" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/app.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="256" column="19" selection-start-line="256" selection-start-column="19" selection-end-line="256" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="278" column="30" selection-start-line="278" selection-start-column="30" selection-end-line="278" selection-end-column="30" />
+        <state relative-caret-position="268">
+          <caret line="286" column="56" selection-start-line="286" selection-start-column="56" selection-end-line="286" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-1.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="40" column="22" selection-start-line="40" selection-start-column="22" selection-end-line="40" selection-end-column="22" />
           <folding>
-            <element signature="n#style#0;n#body#0;n#!!top" expanded="true" />
-            <element signature="e#11050#11284#0#HTML" />
-            <element signature="e#11261#11339#0#HTML" />
-            <element signature="e#12178#12255#0#HTML" />
-            <element signature="e#12535#12612#0#HTML" />
-            <element signature="e#12133#12210#0#HTML" />
-            <element signature="e#13981#14126#0#HTML" />
-            <element signature="e#14173#14226#0#HTML" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#form#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/FrontBundle/Resources/views/Sejour/Slide/sejour.add.form.slide-2.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
         </state>
       </provider>
     </entry>

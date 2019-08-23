@@ -12,42 +12,44 @@
         <hr>
         <form>
             <div class="form-group">
-                <label class="control-label  required text-muted-2" for="libelle-sejour">Libellé:</label>
+                <label class="control-label  required text-muted-2" for="libelle-sejour">Libellé</label>
                 <input id="libelle-sejour" name='libelle' class="form-control form-control-sm" type="text" maxlength="255" placeholder="Exemple : Accueil de loisirs de Noël" value="test" required="required"/>
             </div>
+            <div id="date-slide1" class="row">
+                <div class="form-group">
+                    <label class="control-label required text-muted-2">Dates d'ouverture et de fermeture de l'accueil de loisirs </label>
+                    <div class="date-slide1 ">
+                        <input id="date-ouverture-sejour" name="dateOuverture" class="form-control date-input dates-ouverture-sejour"  type=date value="2019-01-01" required="required"/>
+                        <input id="date-fermeture-sejour" name="dateFermeture" class="form-control date-input dates-fermeture-sejour" type=date  value="2019-01-04" required/>
+                    </div>
+                </div>
 
-            <div class="form-group">
-                <label class="control-label required text-muted-2">Dates d'ouverture et de fermeture de l'accueil de loisirs: </label>
-                <div class="date-slide1 ">
-                    <input id="date-ouverture-sejour" name="dateOuverture" class="form-control date-input dates-ouverture-sejour"  type=date value="2019-01-01" required="required"/>
-                    <input id="date-fermeture-sejour" name="dateFermeture" class="form-control date-input dates-fermeture-sejour" type=date  value="2019-01-04" required/>
+                <div id="date-slide1-2" class="form-group">
+                    <label class="control-label required text-muted-2" for="libelle-sejour">Dates de début des inscriptions(ville et extérieur)</label>
+                    <div class="date-slide1 ">
+                        <input id="date-debut-inscriptions-ville" name="dateDebutInscriptionsVille" class="form-control date-input dates-inscriptions" type="date" value="2019-01-01" required/>
+                        <input id="date-debut-inscriptions-exterieur" name="dateDebutInscriptionsExterieur" class="form-control date-input dates-inscriptions" type="date" value="2019-01-01" required/>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group" style="margin-left: 1.5%;">
+                    <label class="control-label required text-muted-2" for="libelle-sejour">Date de fin des inscriptions(dernier jour inclus)</label>
+                    <div class="card-box-row-flex">
+                    <input id="date-fin-inscriptions" name="dateFinInscriptions" class="form-control date-input dates-inscriptions" type="date" value="2019-01-01" required/>
+                    </div>
                 </div>
             </div>
 
             <div class="form-group">
-                <label class="control-label required text-muted-2" for="libelle-sejour">Dates de début des inscriptions :(ville et extérieur)</label>
-                <div class="date-slide1 ">
-                    <input id="date-debut-inscriptions-ville" name="dateDebutInscriptionsVille" class="form-control date-input dates-inscriptions" type="date" value="2019-01-01" required/>
-                    <input id="date-debut-inscriptions-exterieur" name="dateDebutInscriptionsExterieur" class="form-control date-input dates-inscriptions" type="date" value="2019-01-01" required/>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="control-label required text-muted-2" for="libelle-sejour">Date de fin des inscriptions (dernier jour inclus):</label>
-                <div class="card-box-row-flex">
-                <input id="date-fin-inscriptions" name="dateFinInscriptions" class="form-control date-input dates-inscriptions" type="date" value="2019-01-01" required/>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="control-label required text-muted-2" for="libelle-sejour"> Utilisation des Avoirs :</label>
+                <label class="control-label  text-muted-2" for="libelle-sejour"> Utilisation des Avoirs</label>
                 <div class="card-box-row-flex">
                     <input  class="" type="checkbox" name="yes_noAvoir" Checked>
                 </div>
             </div>
 
             <div class="form-group">
-                <label class="control-label required text-muted-2" for="libelle-sejour"> Séjour visible :</label>
+                <label class="control-label  text-muted-2" for="libelle-sejour"> Séjour visible </label>
                 <div class="card-box-row-flex">
                     <input class="" type="checkbox" name="yes_noVisible" Checked>
                 </div>
