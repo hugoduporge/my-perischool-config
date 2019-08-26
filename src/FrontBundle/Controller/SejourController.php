@@ -5,6 +5,7 @@ namespace FrontBundle\Controller;
 
 use BusinessBundle\Managers\SejourManager;
 use Doctrine\DBAL\Types\DateType;
+use FrontBundle\Entity\Age;
 use FrontBundle\Entity\Bus;
 use FrontBundle\Entity\CategorieTarif;
 use FrontBundle\Entity\Classe;
@@ -18,6 +19,8 @@ use FrontBundle\Entity\Sejour;
 use FrontBundle\Entity\TrancheQuotient;
 use FrontBundle\Entity\TypeDocument;
 use FrontBundle\Entity\VillePartenaire;
+use FrontBundle\Repository\BusRepository;
+use PhpOption\Tests\Repository;
 use Symfony\Bridge\Monolog\Logger;
 use Symfony\Component\Debug\Tests\Fixtures\LoggerThatSetAnErrorHandler;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -50,6 +53,7 @@ class SejourController extends Controller
      * @Route ("/sejour/ajouter", name="sejour_ajouter")
      */
     public function goToAddPage(){
+        $age=$this->getDoctrine()->getRepository(Age::class)->findAll();
         $criteres= $this->getDoctrine()->getRepository(Critere::class)->findAll();
         $classes=$this->getDoctrine()->getRepository(Classe::class)->findAll();
         $typeDocument=$this->getDoctrine()->getRepository(TypeDocument::class)->findAll();
@@ -58,7 +62,8 @@ class SejourController extends Controller
         $crenaux=$this->getDoctrine()->getRepository(Crenaux::class)->findAll();
         $quotients=$this->getDoctrine()->getRepository(TrancheQuotient::class)->findAll();
         $categories=$this->getDoctrine()->getRepository(CategorieTarif::class)->findAll();
-        return ['criteres' => $criteres,
+        return ['age'=>$age,
+            'criteres' => $criteres,
             'classes' => $classes,
             'typesDocuments' => $typeDocument,
             'communes' => $communes,
@@ -72,7 +77,7 @@ class SejourController extends Controller
     }
 
 
-   /**
+    /**
      * @Template("@Front/Sejour/sejour.edit.html.twig")
      * @Route("/sejour/edit/{id}", requirements={"id": "\d+"}, name ="sejour_edit")
      */
@@ -80,7 +85,7 @@ class SejourController extends Controller
          $sejour = $this->getDoctrine()->getRepository(Sejour::class)->find($id);
 
 
-
+         $age=$this->getDoctrine()->getRepository(Age::class)->findAll();
          $criteres= $this->getDoctrine()->getRepository(Critere::class)->findAll();
          $classes=$this->getDoctrine()->getRepository(Classe::class)->findAll();
          $typeDocument=$this->getDoctrine()->getRepository(TypeDocument::class)->findAll();
@@ -89,7 +94,13 @@ class SejourController extends Controller
          $crenaux=$this->getDoctrine()->getRepository(Crenaux::class)->findAll();
          $quotients=$this->getDoctrine()->getRepository(TrancheQuotient::class)->findAll();
          $categories=$this->getDoctrine()->getRepository(CategorieTarif::class)->findAll();
+
+
+         $bus=$this->getDoctrine()->getRepository(Bus::class)->getBusBySejour($sejour);
+         $restrictions=$this->getDoctrine()->getRepository(Restriction::class)->getRestrictionBySejour($sejour);
+         $villes=$this->getDoctrine()->getRepository(VillePartenaire::class)->getVillesBySejour($sejour);
          return ['sejour'=>$sejour,
+             'age'=>$age,
              'criteres' => $criteres,
              'classes' => $classes,
              'typesDocuments' => $typeDocument,
@@ -98,6 +109,9 @@ class SejourController extends Controller
              'crenaux' => $crenaux,
              'quotients' => $quotients,
              'categories' => $categories,
+             'bus' => $bus,
+             'restrictions' => $restrictions,
+             'villes' => $villes,
          ];
 
 

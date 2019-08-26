@@ -4,14 +4,41 @@
 {%  block content %}
     <div id="ajout">
         {% include "@Front/Sejour/Slide/sejour.add.form.html.twig " %}
+
     </div>
     </div>
 {% endblock %}
 {% block javascripts %}
 <script type="text/javascript">
+    var nbRestrictions =0;
+    var prototypeRestriction = $('#card-restriction-prototype-edit').attr('data-prototype');
+
+    var nbVillePartenaires =0;
+    var prototypeVillePartenaire = $('#card-ville-partenaire-prototype-edit').attr('data-prototype');
+
+
+
+    var indexLib=1;
+    var indexHor=1;
+
+    var nbArretsBusEdit=0;
+
+    function prototypeArretBus2() {
+
+        $('.arrets-bus').append( '<div class="arret-bus"  >\n         ' +
+            ' <input id="lib' +indexLib+ '" type="text" class="arretBusLibelle"  placeholder="Nom de l\'arrêt de bus"  >  ' +
+            '<input id="hor' +indexHor+ '" type="time"  class="arretBusHoraire " >\n       ' +
+            ' <button type="button" class="btn-delete-bus-edit btn btn-outline-danger" title="Cliquez pour supprimer cet arr\xEAt de bus">x</button>\n    </div>');
+
+    }
+
     $(document).ready(function(){
 
-        /*SLIDE N1*/
+
+
+
+        /*SLIDE N1 = LIBELLE DU SEJOUR ,  LES 5 DATES , LES 2 CHECKBOX (SEJOUR VISIBLE ET UTILISATION DES AVOIRS)*/
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
         $('#libelle-sejour').val('{{ sejour.libelle }}');
         $('#date-ouverture-sejour').val('{{ sejour.date_Debut|date('Y-m-d') }}');
         $('#date-fermeture-sejour').val('{{ sejour.dateFin|date('Y-m-d') }}');
@@ -26,7 +53,11 @@
         $('#myCheckAvoir').prop('checked',true);
         {% endif %}
 
-        /*SLIDE N2*/
+
+
+
+        /*SLIDE N2  = TRAITEMENT BUS, ATL , MODE PAIEMENT (MENSUEL OU PLUSIEURS FOIS)*/
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
         {% if sejour.atl==1 %}
         $('#myCheckatl').prop('checked', true);
         $('#bloc-atl').show();
@@ -55,12 +86,108 @@
         $('#myCheckPxF').hide();
         {% endif %}
 
+        {% if  sejour.bus == 1 %}
+        $('.arrets-bus').append('<button id="btn-ajout-arret-bus-edit" type="button" class=" btn  btn-primary rounded">\n' +
+            '                                Ajouter un arrêt de bus\n' +
+            '                            </button>');
+        $('#btn-ajout-arret-bus').hide();
+            $('#myCheckBus').prop('checked',true);
+            var index=0;
+            {% for busI in bus %}
+                index+=1;
+                $('#bloc-bus').show();
+                prototypeArretBus2();
+                indexLib+=1;
+                indexHor+=1;
+                nbArretsBusEdit++;
+                $('#lib'+index+'').val('{{ busI.libelle }}');
+                $('#hor'+index+'').val('{{ busI.heure }}');
+            {% endfor %}
+        {% endif %}
+
+        $('#btn-ajout-arret-bus-edit').on('click', function(){
+            $(prototypeArretBus2()).insertBefore('#btn-ajout-arret-bus');
+            nbArretsBusEdit++;
+            indexLib+=1;
+            indexHor+=1;
+            console.log(nbArretsBusEdit);
+        });
+
+        $(document).on('click', '.btn-delete-bus-edit', function () {
+            $(this).parent().remove();
+            nbArretsBusEdit--;
+            indexLib-=1;
+            indexHor-=1;
+            console.log(nbArretsBusEdit);
+
+        });
 
 
 
 
 
 
+
+        /*SLIDE N3 = TRAITEMENT RESTRICTIONS*/
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+        {%  for restriction in restrictions %}
+            var nouvelleRestriction = prototypeRestriction.replace(/INDEX/g, nbRestrictions);
+            nbRestrictions++;
+
+            $('.cards-restrictions').append($(nouvelleRestriction).insertBefore('#btn-ajout-card-restriction'));
+
+
+        {% endfor %}
+        $('#btn-ajout-card-restriction').hide();
+        $('.cards-restrictions').append('<button id="btn-ajout-card-restriction-edit" type="button" class="btn btn-primary rounded">\n' +
+            '                    Ajouter une restriction\n' +
+            '                </button>');
+
+
+        $(document).on('click', '.btn-supprimer-restriction-edit', function () {
+            nbRestrictions--;
+            $(this).closest('.card-restriction').remove();
+            console.log(nbRestrictions);
+        });
+
+        $('#btn-ajout-card-restriction-edit').on('click', function(){
+            nbRestrictions++;
+            var nouvelleRestriction = prototypeRestriction.replace(/INDEX/g, nbRestrictions);
+            $(nouvelleRestriction).insertBefore('#btn-ajout-card-restriction');
+            console.log(nbRestrictions);
+        });
+
+
+
+        /*SLIDE N4 = TRAITEMENT VILLE PARTENAIRES*/
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+        {%  for ville in villes %}
+            var nouvelleVillePartenaire = prototypeVillePartenaire.replace(/INDEX/g, nbVillePartenaires);
+
+            $('#cards-villes-partenaires').append($(nouvelleVillePartenaire));
+            $('input[name="villes['+ nbVillePartenaires +'][codePostal]"]').val('{{ ville.codePostal }}');
+            $('input[name="villes['+ nbVillePartenaires +'][libelle]"]').val('{{ ville.ville }}');
+            nbVillePartenaires++;
+            console.log(nbVillePartenaires);
+
+        {% endfor %}
+
+        $('#btn-ajout-card-ville-partenaire').hide();
+        $('#cards-villes-partenaires').append('<button id="btn-ajout-card-ville-partenaire-edit" type="button" class="btn btn-primary rounded">\n' +
+            '                    Ajouter une ville partenaire\n' +
+            '                </button>');
+        $(document).on('click', '.btn-supprimer-ville-partenaire-edit', function () {
+            nbVillePartenaires--;
+            $(this).closest('.card-ville-partenaire').remove();
+            console.log(nbVillePartenaires);
+        });
+
+        $('#btn-ajout-card-ville-partenaire-edit').click(function () {
+            nbVillePartenaires++;
+            var nouvelleVillePartenaire = prototypeVillePartenaire.replace(/INDEX/g, nbVillePartenaires);
+            $(nouvelleVillePartenaire).insertBefore('#btn-ajout-card-ville-partenaire');
+            console.log(nbVillePartenaires);
+        });
     });
 
 </script>

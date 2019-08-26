@@ -128,6 +128,20 @@ body{
     transition: 0.2s ease;
     border-radius: 8px;
 }
+.btn-supprimer-restriction-edit{
+    position: absolute;
+    right: 8px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    font-size: 18px;
+    background-color: #eeeeee;
+    cursor: pointer;
+    transition: 0.2s ease;
+    border-radius: 8px;
+}
 .card-ville-partenaire{
     border: 1px solid #E3E3E3;
     border-radius: 10px;
@@ -163,6 +177,20 @@ body{
     transition: 0.2s ease;
     border-radius: 8px;
 }
+.btn-supprimer-ville-partenaire-edit{
+    position: absolute;
+    right: 8px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    font-size: 18px;
+    background-color: #eeeeee;
+    cursor: pointer;
+    transition: 0.2s ease;
+    border-radius: 8px;
+}
 
 #restriction-critere{
     margin-left:10%;
@@ -182,6 +210,13 @@ body{
     margin-left:1.5%;
 }
 #btn-ajout-card-ville-partenaire{
+    margin-bottom: 10px;
+    margin-top:1.5%;
+    height: 10%;
+    margin-left:1%;
+}
+
+#btn-ajout-card-ville-partenaire-edit{
     margin-bottom: 10px;
     margin-top:1.5%;
     height: 10%;
@@ -286,8 +321,7 @@ body{
     font-weight: bold;
     color: #1924b5;
     display: flex;
-    justify-content: center;
-    align-items: center;
+
     flex-shrink: 0;
     opacity: 0.5;
 
@@ -297,4 +331,9 @@ body{
     width: 40%;
 }
 .mid{
+}
+#btn-ajout-card-restriction-edit {
+    margin-bottom: 10px;
+    height: 10%;
+    margin-left: 1.5%
 }

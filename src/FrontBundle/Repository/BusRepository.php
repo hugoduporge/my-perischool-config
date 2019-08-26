@@ -3,6 +3,7 @@
 namespace FrontBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use FrontBundle\Entity\Bus;
 
 /**
  * BusRepository
@@ -12,4 +13,14 @@ use Doctrine\ORM\EntityRepository;
  */
 class BusRepository extends EntityRepository
 {
+    public function getBusBySejour($id){
+        $qb = $this->_em->createQueryBuilder()
+            ->select ('b')
+            ->from (Bus::class, 'b')
+            ->where('b.sejour IN (:id)')
+            ->setParameter('id', $id);
+
+
+        return $qb ->getQuery()->getResult();
+    }
 }

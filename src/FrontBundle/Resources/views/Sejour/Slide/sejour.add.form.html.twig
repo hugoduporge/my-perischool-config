@@ -117,6 +117,7 @@
         });
 
     $(document).ready(function() {
+
         $('#btn-valider').on('click', function () {
 
             var libelle = $('#libelle-sejour').val();
@@ -130,7 +131,6 @@
             var arretBusLength = $('.arret-bus').length;
             var paiementMensuel = $('input[id="myCheckPmensuel"]:checked').val();
             var paiementXFois = $('input[id="myCheckPxF"]:checked').val();
-            var listbusAjax= listbusAjax;
             var nbEcheances = $('#nb-echeances').val();
             var aideTempsLibre = $('input[id="myCheckatl"]:checked').val();
             var montantAtl = $('#montant-atl').val();
@@ -166,7 +166,10 @@
                    valeur.push($('[name="restrictions['+i+'][commune]"]').val());
                 }
             });
-            for (var i = 0; i < nbRestrictions; i++) {
+            console.log('valeur',valeur);
+
+
+                for (var i = 0; i < nbRestrictions; i++) {
                 restrictions.push({
                     critere: critere[i],
                     operateur: operateur[i],
@@ -187,6 +190,29 @@
 
             /*PARTIE BUS ("NOM DE L'ARRET + HEURE DE RAMASSAGE)*/
     // --------------------------------------------------------------------------------------------------------------------------------
+            var listBusAjax= new Array();
+            var BusContentLibelle =[];
+            var BusContentHoraire =[];
+            $('.arretBusLibelle').each(function(){
+                if($(this).val() !== "") {
+                    BusContentLibelle.push($(this).val());
+                }
+            });
+
+            $('.arretBusHoraire').each(function(){
+                if($(this).val() !== "") {
+                    BusContentHoraire.push($(this).val());
+                }
+            });
+
+            for(var index=0; index <BusContentLibelle.length; index++){
+                listBusAjax.push({
+                    libelle:BusContentLibelle[index],
+                    hour: BusContentHoraire[index],
+                })
+            }
+
+            console.log(listBusAjax);
 
 
 
@@ -214,7 +240,7 @@
                         aideTempsLibre: aideTempsLibre,
                         montantAtl: montantAtl,
                         nbDemiJoursAtl: nbDemiJoursAtl,
-                        listbusAjax:listbusAjax,
+                        listBusAjax: listBusAjax,
                         restrictions: restrictions,
                         journeesTop: journeesTop,
                         villes: villes,
@@ -253,7 +279,7 @@
         });
 
         $('.btn-slide-suivant-Toslide3').on('click', function () {
-            if($('input[id="myCheckBus"]:checked').length === 0 ){
+            /*if($('input[id="myCheckBus"]:checked').length === 0 ){
                 if($('#form-slide2').valid()){
                     $('#slide2').hide();
                     $('#slide3').show();
@@ -297,6 +323,10 @@
                         }
                     }
                 }
+            }*/
+            if($('#form-slide2').valid()) {
+                $('#slide2').hide();
+                $('#slide3').show();
             }
         });
 
@@ -317,7 +347,7 @@
                 $('#slide3').hide();
                 $('#slide4').show();
             }
-        })
+        });
         $('.btn-slide-precedent-Toslide3').on('click', function () {
             $('#slide3').show();
             $('#slide4').hide();
