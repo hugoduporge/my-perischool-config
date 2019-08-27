@@ -10,13 +10,6 @@
 {% endblock %}
 {% block javascripts %}
 <script type="text/javascript">
-
-
-
-    $(document).ready(function(){
-        $('#btn-ajout-secteur').trigger('click');
-    });
-
     var nbRestrictions =0;
     var prototypeRestriction = $('#card-restriction-prototype-edit').attr('data-prototype');
 
@@ -40,10 +33,7 @@
             ' <button type="button" class="btn-delete-bus-edit btn btn-outline-danger" title="Cliquez pour supprimer cet arr\xEAt de bus">x</button>\n    </div>');
 
     }
-
     $(document).ready(function(){
-
-
 
 
         /*SLIDE N1 = LIBELLE DU SEJOUR ,  LES 5 DATES , LES 2 CHECKBOX (SEJOUR VISIBLE ET UTILISATION DES AVOIRS)*/
@@ -128,14 +118,7 @@
             indexHor-=1;
 
         });
-
-
-
-
-
-
-
-        /*SLIDE N3 = TRAITEMENT RESTRICTIONS*/
+       /*SLIDE N3 = TRAITEMENT RESTRICTIONS*/
 /*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
         {%  for restriction in restrictions %}
         nbRestrictions++;
@@ -167,11 +150,6 @@
         $('select[name="restrictions[' + nbRestrictions + '][commune]"]').show();
         $('select[name="restrictions[' + nbRestrictions + '][commune]"]').val("{{ restriction.valeur }}");
         {% endif %}
-
-
-
-
-
         {% endfor %}
         $('#btn-ajout-card-restriction').hide();
         $('.cards-restrictions').append('<button id="btn-ajout-card-restriction-edit" type="button" class="btn btn-primary rounded">\n' +
@@ -191,7 +169,6 @@
             $(nouvelleRestriction).insertBefore($('#btn-ajout-card-restriction-edit')).last();
             console.log(nbRestrictions);
         });
-
 
 
         /*SLIDE N4 = TRAITEMENT VILLE PARTENAIRES*/
@@ -333,9 +310,20 @@
                 });
 
             });
-            console.log(villes);
 
             /*SLIDE 5*/
+            var journeesTopEdit = journeesEntier;
+
+            $(journeesTopEdit).each(function (indexJour, jour) {
+                var i =indexJour+1;
+                jour["creneaux"] = $("select[name='creneau[" + i + "]']").val(),
+                    jour["secteur"] = $("select[name='secteur[" + i + "]']").val(),
+                    jour["places"] = $("input[name='input[" + i + "]']").val(),
+                    jour["checked"] = !!$('input[name="checkboxEntierDay[' + i + ']"]').is(':checked');
+
+
+            });
+            console.log('test',journeesTopEdit);
             $.ajax({
                 url: '{{ path('sejour_edit') }}',
                 data: {
@@ -361,6 +349,8 @@
                     restrictions: restrictions,
                     /*SLIDE 4*/
                     villes: villes,
+                    /*SLIDE 5*/
+                    journeesTopEdit:journeesTopEdit,
 
                 },
                 success: function () {
@@ -372,7 +362,6 @@
                     console.log('koajax');
                 }
             });
-
         });
 
     });

@@ -239,6 +239,22 @@ class SejourController extends Controller
                     $entityManager->persist($villePartenaire);
                 }
             }
+            /*SLIDE 5 CRENEAU JOURNEE ENTIER */
+            $journeesSecteur = $request->get('journeesTopEdit');
+            if (!is_null($journeesSecteur) && count($journeesSecteur) > 0) {
+                foreach ($journeesSecteur as $journee) {
+                    if ('true' === $journee['checked'] ) {
+                        $journeeSecteur = new JourneeSecteur();
+                        $journeeSecteur->setSejour($sejour);
+                        $journeeSecteur->setDate($journee['jour']);
+                        $journeeSecteur->setCreneau($journee['creneaux']);
+                        $journeeSecteur->setPlaces($journee['places']);
+                        $journeeSecteur->setSecteur($journee['secteur']);
+                        $entityManager = $this->getDoctrine()->getManager();
+                        $entityManager->persist($journeeSecteur);
+                    }
+                }
+            }
             $entityManager->persist($sejour);
             $entityManager->flush();
         }
