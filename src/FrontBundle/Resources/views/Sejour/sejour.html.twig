@@ -29,12 +29,10 @@
                 {% for sejour in sejours %}
                 <tr>
                     <td id="libelle_sejour" class="rounded"> {{ sejour.libelle }}</td>
-                    <td style="
-                    padding-left: 329px;
-                    ">
+                    <td>
 
                         <button class="btn-sejour-edit"><a class="btn-sejour-edit"
-                                                           href={{ path('sejour_edit', { 'id' : sejour.id }) }}><i class="fas fa-edit"></i></a></button>
+                                                           href={{ path('sejour_editer', { 'id' : sejour.id }) }}><i class="fas fa-edit"></i></a></button>
 
                         <button class="btn-sejour-delete" data-id="{{ sejour.id }}"><i class="fas fa-trash-alt"></i></button>
                     </td>

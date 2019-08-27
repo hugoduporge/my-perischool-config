@@ -17,7 +17,7 @@
         $('#btn-ajout-secteur').trigger('click');
     });
 
-    var nbRestrictions =-1;
+    var nbRestrictions =0;
     var prototypeRestriction = $('#card-restriction-prototype-edit').attr('data-prototype');
 
     var nbVillePartenaires =0;
@@ -119,7 +119,6 @@
             nbArretsBusEdit++;
             indexLib+=1;
             indexHor+=1;
-            console.log(nbArretsBusEdit);
         });
 
         $(document).on('click', '.btn-delete-bus-edit', function () {
@@ -127,7 +126,6 @@
             nbArretsBusEdit--;
             indexLib-=1;
             indexHor-=1;
-            console.log(nbArretsBusEdit);
 
         });
 
@@ -156,22 +154,18 @@
             {% elseif restriction.operateur == "<=" %}
             $('select[name="restrictions[' + nbRestrictions + '][operateur]"]').val("<=");
             {% endif %}
-        console.log('age');
         {% elseif restriction.critereIndex =='2'%}
         $('select[name="restrictions[' + nbRestrictions + '][age]"]').hide();
         $('select[name="restrictions[' + nbRestrictions + '][classe]"]').show();
         $('select[name="restrictions[' + nbRestrictions + '][classe]"]').val('{{ restriction.valeur }}');
-        console.log('classe');
         {% elseif restriction.critereIndex =='3'%}
         $('select[name="restrictions[' + nbRestrictions + '][age]"]').hide();
         $('select[name="restrictions[' + nbRestrictions + '][typeDocument]"]').show();
         $('select[name="restrictions[' + nbRestrictions + '][typeDocument]"]').val("{{ restriction.valeur }}");
-        console.log('typedoc');
         {% elseif restriction.critereIndex =='4' %}
         $('select[name="restrictions[' + nbRestrictions + '][age]"]').hide();
         $('select[name="restrictions[' + nbRestrictions + '][commune]"]').show();
         $('select[name="restrictions[' + nbRestrictions + '][commune]"]').val("{{ restriction.valeur }}");
-        console.log('commune');
         {% endif %}
 
 
@@ -194,7 +188,7 @@
         $('#btn-ajout-card-restriction-edit').on('click', function(){
             nbRestrictions++;
             var nouvelleRestriction = prototypeRestriction.replace(/INDEX/g, nbRestrictions);
-            $(nouvelleRestriction).insertBefore('#btn-ajout-card-restriction');
+            $(nouvelleRestriction).insertBefore($('#btn-ajout-card-restriction-edit')).last();
             console.log(nbRestrictions);
         });
 
@@ -209,7 +203,6 @@
             $('input[name="villes['+ nbVillePartenaires +'][codePostal]"]').val('{{ ville.codePostal }}');
             $('input[name="villes['+ nbVillePartenaires +'][libelle]"]').val('{{ ville.ville }}');
             nbVillePartenaires++;
-            console.log(nbVillePartenaires);
 
         {% endfor %}
 
@@ -220,14 +213,13 @@
         $(document).on('click', '.btn-supprimer-ville-partenaire-edit', function () {
             nbVillePartenaires--;
             $(this).closest('.card-ville-partenaire').remove();
-            console.log(nbVillePartenaires);
         });
 
         $('#btn-ajout-card-ville-partenaire-edit').click(function () {
-            nbVillePartenaires++;
             var nouvelleVillePartenaire = prototypeVillePartenaire.replace(/INDEX/g, nbVillePartenaires);
-            $(nouvelleVillePartenaire).insertBefore('#btn-ajout-card-ville-partenaire');
-            console.log(nbVillePartenaires);
+            $(nouvelleVillePartenaire).insertBefore($('#btn-ajout-card-ville-partenaire-edit')).last();
+            nbVillePartenaires++;
+
         });
 
 
@@ -254,7 +246,134 @@
 
         {% endfor %}
 
+        /*Slide5 Changement du bouton valider*/
 /*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+        $('#btn-valider').hide();
+        $('#btn-valider-edit').show();
+        $('#btn-valider-edit').on('click',function() {
+
+            /*SLIDE 1*/
+            var libelle = $('#libelle-sejour').val();
+            var dateOuverture = new $('#date-ouverture-sejour').val();
+            var dateFermeture = new $('#date-fermeture-sejour').val();
+            var dateDebutVille = $('#date-debut-inscriptions-ville').val();
+            var dateDebutExterieur = $('#date-debut-inscriptions-exterieur').val();
+            var dateFinInscriptions = $('#date-fin-inscriptions').val();
+            var visible = $('input[name="yes_noVisible"]:checked').val();
+            var useCreditNote = $('input[name="yes_noAvoir"]:checked').val();
+
+            /*SLIDE 2*/
+            var listBusAjax= new Array();
+            var BusContentLibelle =[];
+            var BusContentHoraire =[];
+            $('.arretBusLibelle').each(function(){
+                if($(this).val() !== "") {
+                    BusContentLibelle.push($(this).val());
+                }
+            });
+            $('.arretBusHoraire').each(function(){
+                if($(this).val() !== "") {
+                    BusContentHoraire.push($(this).val());
+                }
+            });
+            for(var index=0; index <BusContentLibelle.length; index++){
+                listBusAjax.push({
+                    libelle:BusContentLibelle[index],
+                    hour: BusContentHoraire[index],
+                })
+            }
+            var paiementMensuel = $('input[id="myCheckPmensuel"]:checked').val();
+            var paiementXFois = $('input[id="myCheckPxF"]:checked').val();
+            var nbEcheances = $('#nb-echeances').val();
+            var aideTempsLibre = $('input[id="myCheckatl"]:checked').val();
+            var montantAtl = $('#montant-atl').val();
+            var nbDemiJoursAtl = $('#demi-journees-atl').val();
+
+            /*SLIDE 3*/
+            var critere = new Array();
+            var operateur = new Array();
+            var valeur = new Array();
+            var restrictions = new Array();
+
+            $('.select-critere').each(function () {
+                critere.push($(this).val());
+            });
+            $('.select-operateur').each(function () {
+                operateur.push($(this).val());
+            });
+            $('.select-critere').each(function ( index) {
+                var i =index+1;
+                if ($(this).val() === '1') {
+                    valeur.push($('select[name="restrictions[' + i + '][age]"]').val());
+                }else if ($(this).val() === '2') {
+                    valeur.push($('select[name="restrictions[' + i + '][classe]"]').val());
+                }else if ($(this).val() === '3') {
+                    valeur.push($('select[name="restrictions[' + i + '][typeDocument]"]').val());
+                }else if ($(this).val() === '4') {
+                    valeur.push($('select[name="restrictions[' + i + '][commune]"]').val());
+
+                }
+            });
+
+            for (var i = 0; i < nbRestrictions; i++) {
+                restrictions.push({
+                    critere: critere[i],
+                    operateur: operateur[i],
+                    valeur: valeur[i]
+                })
+            }
+            /*SLIDE 4 */
+
+            var villes =new Array()
+            $('.card-ville-partenaire').each(function(index){
+                var i=index;
+                villes.push({
+                    libelle: ($('[name="villes['+i+'][libelle]"]').val()),
+                    codePostal: ($('[name="villes['+i+'][codePostal]"]').val())
+                });
+
+            });
+            console.log(villes);
+
+            /*SLIDE 5*/
+            $.ajax({
+                url: '{{ path('sejour_edit') }}',
+                data: {
+                    id: {{ sejour.id }},
+                    /*SLIDE 1*/
+                    libelle: libelle,
+                    dateOuverture: dateOuverture,
+                    dateFermeture: dateFermeture,
+                    dateDebutVille: dateDebutVille,
+                    dateDebutExterieur: dateDebutExterieur,
+                    dateFinInscriptions: dateFinInscriptions,
+                    visible: visible,
+                    useCreditNote: useCreditNote,
+                    /*SLIDE 2*/
+                    paiementMensuel: paiementMensuel,
+                    paiementXFois: paiementXFois,
+                    nbEcheances: nbEcheances,
+                    aideTempsLibre: aideTempsLibre,
+                    montantAtl: montantAtl,
+                    nbDemiJoursAtl: nbDemiJoursAtl,
+                    listBusAjax: listBusAjax,
+                    /*SLIDE 3*/
+                    restrictions: restrictions,
+                    /*SLIDE 4*/
+                    villes: villes,
+
+                },
+                success: function () {
+                    console.log('okajax');
+                    window.location.href = ("{{ path('sejour') }}");
+
+                },
+                error: function () {
+                    console.log('koajax');
+                }
+            });
+
+        });
 
     });
 

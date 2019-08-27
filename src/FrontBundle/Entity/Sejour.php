@@ -106,7 +106,7 @@ class Sejour
     /**
      * @var bool
      *
-     * @ORM\Column(name="visible",type="boolean",options={"default" : true}, nullable=false)
+     * @ORM\Column(name="visible",type="boolean", nullable=false)
      */
     private $visible = true;
     /**
@@ -115,7 +115,7 @@ class Sejour
     /**
      * @var bool
      *
-     * @ORM\Column(name="use_credit_note",type="boolean",options={"default" : true}, nullable=false)
+     * @ORM\Column(name="use_credit_note",type="boolean", nullable=false)
      */
     private $useCreditNote = true;
     /**
