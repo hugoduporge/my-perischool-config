@@ -210,12 +210,16 @@ class SejourController extends Controller
                 $critere= $this->getDoctrine()->getRepository(Critere::class)->find($res['critere']);
                 $restriction = new Restriction();
                 if ('1' === $res['critere']) {
+                    $restriction->setCritereIndex(1);
                     $restriction->setCritereval('Age');
                 } elseif ('2' === $res['critere']) {
+                    $restriction->setCritereIndex(2);
                     $restriction->setCritereval('Classe');
                 } elseif ('3' === $res['critere']) {
+                    $restriction->setCritereIndex(3);
                     $restriction->setCritereval('Type de document');
                 } else {
+                    $restriction->setCritereIndex(4);
                     $restriction->setCritereval('Commune');
                 }
                 $restriction->setCritere($critere);

@@ -60,6 +60,29 @@ class Restriction
      */
     private $critereval;
 
+    /**
+     * @return int
+     * @ORM\Column(name="critere_index", type="integer", nullable=true)
+     */
+
+    private $critereIndex;
+
+    /**
+     * @return int
+     * @ORM\Column(name="operateur_index", type="integer", nullable=true)
+     */
+
+    private $operateurIndex;
+
+    /**
+     * @return int
+     * @ORM\Column(name="valeur_index", type="integer", nullable=true)
+     */
+
+    private $valeurIndex;
+
+
+
     public function getId()
     {
         return $this->id;
@@ -151,6 +174,22 @@ class Restriction
     public function setCritereval($critereval)
     {
         $this->critereval = $critereval;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCritereIndex()
+    {
+        return $this->critereIndex;
+    }
+
+    /**
+     * @param mixed $critereIndex
+     */
+    public function setCritereIndex($critereIndex): void
+    {
+        $this->critereIndex = $critereIndex;
     }
 
 

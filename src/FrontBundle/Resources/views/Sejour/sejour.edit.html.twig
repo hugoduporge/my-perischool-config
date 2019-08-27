@@ -17,7 +17,7 @@
         $('#btn-ajout-secteur').trigger('click');
     });
 
-    var nbRestrictions =0;
+    var nbRestrictions =-1;
     var prototypeRestriction = $('#card-restriction-prototype-edit').attr('data-prototype');
 
     var nbVillePartenaires =0;
@@ -140,10 +140,42 @@
         /*SLIDE N3 = TRAITEMENT RESTRICTIONS*/
 /*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
         {%  for restriction in restrictions %}
-            var nouvelleRestriction = prototypeRestriction.replace(/INDEX/g, nbRestrictions);
-            nbRestrictions++;
+        nbRestrictions++;
+        var nouvelleRestriction = prototypeRestriction.replace(/INDEX/g, nbRestrictions);
 
             $('.cards-restrictions').append($(nouvelleRestriction).insertBefore('#btn-ajout-card-restriction'));
+
+
+        $('select[name="restrictions[' + nbRestrictions + '][critere]"]').val('{{ restriction.critereIndex }}');
+        $('select[name="restrictions[' + nbRestrictions + '][operateur]"]').val("{{ restriction.operateur }}");
+
+        {% if restriction.critereIndex =='1' %}
+        $('select[name="restrictions[' + nbRestrictions + '][age]"]').val("{{ restriction.valeur }}");
+            {% if restriction.operateur == ">=" %}
+            $('select[name="restrictions[' + nbRestrictions + '][operateur]"]').val(">=");
+            {% elseif restriction.operateur == "<=" %}
+            $('select[name="restrictions[' + nbRestrictions + '][operateur]"]').val("<=");
+            {% endif %}
+        console.log('age');
+        {% elseif restriction.critereIndex =='2'%}
+        $('select[name="restrictions[' + nbRestrictions + '][age]"]').hide();
+        $('select[name="restrictions[' + nbRestrictions + '][classe]"]').show();
+        $('select[name="restrictions[' + nbRestrictions + '][classe]"]').val('{{ restriction.valeur }}');
+        console.log('classe');
+        {% elseif restriction.critereIndex =='3'%}
+        $('select[name="restrictions[' + nbRestrictions + '][age]"]').hide();
+        $('select[name="restrictions[' + nbRestrictions + '][typeDocument]"]').show();
+        $('select[name="restrictions[' + nbRestrictions + '][typeDocument]"]').val("{{ restriction.valeur }}");
+        console.log('typedoc');
+        {% elseif restriction.critereIndex =='4' %}
+        $('select[name="restrictions[' + nbRestrictions + '][age]"]').hide();
+        $('select[name="restrictions[' + nbRestrictions + '][commune]"]').show();
+        $('select[name="restrictions[' + nbRestrictions + '][commune]"]').val("{{ restriction.valeur }}");
+        console.log('commune');
+        {% endif %}
+
+
+
 
 
         {% endfor %}
