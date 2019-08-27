@@ -1,5 +1,5 @@
 
-
+{% include "@Front/Sejour/navbar.html.twig " %}
 
 {%  block content %}
     <div id="ajout">
@@ -10,11 +10,20 @@
 {% endblock %}
 {% block javascripts %}
 <script type="text/javascript">
+
+
+
+    $(document).ready(function(){
+        $('#btn-ajout-secteur').trigger('click');
+    });
+
     var nbRestrictions =0;
     var prototypeRestriction = $('#card-restriction-prototype-edit').attr('data-prototype');
 
     var nbVillePartenaires =0;
     var prototypeVillePartenaire = $('#card-ville-partenaire-prototype-edit').attr('data-prototype');
+
+    var prototypeCreneauRestriction = $('#card-secteur-entier-prototype-edit').attr('data-prototype');
 
 
 
@@ -188,6 +197,33 @@
             $(nouvelleVillePartenaire).insertBefore('#btn-ajout-card-ville-partenaire');
             console.log(nbVillePartenaires);
         });
+
+
+        /*SLIDE N5 = TRAITEMENT JOUR AFFICHER SECTEURS*/
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+        $('.checkbox-journees-entier').hide();
+        var nbCreneauxJournee = 0;
+        {% for journee in journeesSecteur %}
+        nbCreneauxJournee++;
+
+        var nouveauCreneauEntier = prototypeCreneauRestriction.replace(/INDEX/g, nbCreneauxJournee);
+
+
+        $('#cards-creneaux-entiers').append('<div class=\'checkbox-journee-entier checkbox-journee-entier-selectionne\'  data-journee='+ nbCreneauxJournee +' >\n ' +
+                '                           <div class=\'check-journee-entier\'>\n   ' +
+                '                             <span class=\'fas fa-check\'></span>\n   ' +
+                '                         </div><div class=\'contenu-day\' </div>\n      '+
+                '                      <div class=libelle-journee-entier>' + "{{ journee.date }}" + ' <input id="testCheckBox" name="checkboxEntierDay['+nbCreneauxJournee +']" type=checkbox' +
+                ' style="" checked/></div><hr>\n  ' +
+                nouveauCreneauEntier);
+        $('select[name="creneau[' + nbCreneauxJournee + ']"]').val('{{ journee.creneau }}');
+        $('select[name="secteur[' + nbCreneauxJournee + ']"]').val('{{ journee.secteur }}');
+        $('input[name="input[' + nbCreneauxJournee + ']"]').val('{{ journee.places }}');
+
+        {% endfor %}
+
+/*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
     });
 
 </script>

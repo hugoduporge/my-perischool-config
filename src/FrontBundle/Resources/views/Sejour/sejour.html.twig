@@ -24,17 +24,14 @@
             </div>
             <hr>
             <table id="sejours">
-                <thead>
-                <tr>
-                    <th style="width: 75%;"> Nom du séjour</th>
-                    <th> Action</th>
-                </tr>
-                </thead>
+
                 <tbody>
                 {% for sejour in sejours %}
                 <tr>
                     <td id="libelle_sejour" class="rounded"> {{ sejour.libelle }}</td>
-                    <td>
+                    <td style="
+                    padding-left: 329px;
+                    ">
 
                         <button class="btn-sejour-edit"><a class="btn-sejour-edit"
                                                            href={{ path('sejour_edit', { 'id' : sejour.id }) }}><i class="fas fa-edit"></i></a></button>
@@ -46,7 +43,7 @@
 
                 {% endfor %}
             </table>
-            <button class="btn-sejour-add"><a href="{{ path('sejour_ajouter') }}"><i class="fas fa-plus-circle"></i>
+            <button class="btn-sejour-add"><a href="{{ path('sejour_ajouter') }}"><i class="fas fa-plus-circle">Ajouter un séjour </i>
 
                 </a></button>
         </div>

@@ -30,7 +30,7 @@
 
                 <div class="checkbox-journees-entier row"></div>
 
-                <div id="cards-creneaux-entiers">
+                <div id="cards-creneaux-entiers" style="display: flex;">
 
 
                 </div>
@@ -44,6 +44,8 @@
 
             <div id="card-secteur-entier-prototype"
                  data-prototype="{% filter escape %}{{ include('@Front/Sejour/Prototype/sejour.ajout.secteur-entier.prototype.html.twig') }}{% endfilter %}"></div>
+            <div id="card-secteur-entier-prototype-edit"
+                 data-prototype="{% filter escape %}{{ include('@Front/Sejour/Prototype/sejour.edit.secteur-entier.prototype.html.twig') }}{% endfilter %}"></div>
 
 
             <button id="btn-slide-precedent-To4" type="button"

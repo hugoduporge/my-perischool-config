@@ -1,0 +1,22 @@
+<div name="m-b-15[INDEX_JOURNEE]" class="m-b-15">
+    <div class="col-xs-6">
+        <select id="creneau-critere-select" name="creneau[INDEX]" class="form-control required select-creneau" required>
+            <option disabled selected>Créneau</option>
+            {% for creneau in crenaux %}
+                <option value="{{ creneau.id }}" >{{ creneau.libelle }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-xs-6">
+        <select id="creneau-secteur-select" name="secteur[INDEX]" class="form-control required select-secteur" required>
+            <option disabled selected>Secteur</option>
+            {% for secteur in secteurs %}
+                <option value="{{ secteur.id }}" data-nb-places="{{ secteur.nbPlaces }}" data-age-min="{{ secteur.ageMin }}" data-age-max="{{ secteur.ageMax }}">{{ secteur.libelle }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-xs-4">
+        <input id="creneau-val-input" name="input[INDEX]" class="form-control required input-nb-places-secteur-creneau" placeholder="Places" type="number" min="1" max="99999" step="1" required/>
+    </div>
+
+</div>

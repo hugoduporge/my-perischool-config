@@ -99,6 +99,7 @@ class SejourController extends Controller
          $bus=$this->getDoctrine()->getRepository(Bus::class)->getBusBySejour($sejour);
          $restrictions=$this->getDoctrine()->getRepository(Restriction::class)->getRestrictionBySejour($sejour);
          $villes=$this->getDoctrine()->getRepository(VillePartenaire::class)->getVillesBySejour($sejour);
+         $journeesSecteur = $this->getDoctrine()->getRepository(JourneeSecteur::class)->getJourneesBySejour($sejour);
          return ['sejour'=>$sejour,
              'age'=>$age,
              'criteres' => $criteres,
@@ -112,6 +113,7 @@ class SejourController extends Controller
              'bus' => $bus,
              'restrictions' => $restrictions,
              'villes' => $villes,
+             'journeesSecteur' => $journeesSecteur,
          ];
 
 
