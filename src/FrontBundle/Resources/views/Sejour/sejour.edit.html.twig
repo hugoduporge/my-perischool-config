@@ -6,7 +6,6 @@
         {% include "@Front/Sejour/Slide/sejour.add.form.html.twig " %}
 
     </div>
-    </div>
 {% endblock %}
 {% block javascripts %}
 <script type="text/javascript">
@@ -34,8 +33,14 @@
 
     }
     $(document).ready(function(){
+        $('#btn-slide-suivant-To3').hide();
+        $('#btn-slide-suivant-To3-edit').show();
+        $('.erreur-sur-bus').hide();
+        $('#btn-slide-suivant-To3-edit').on('click', function(){
+                $('#slide2').hide();
+                $('#slide3').show();
 
-
+        });
         /*SLIDE N1 = LIBELLE DU SEJOUR ,  LES 5 DATES , LES 2 CHECKBOX (SEJOUR VISIBLE ET UTILISATION DES AVOIRS)*/
 /*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
         $('#libelle-sejour').val('{{ sejour.libelle }}');
@@ -181,6 +186,8 @@
             $('input[name="villes['+ nbVillePartenaires +'][libelle]"]').val('{{ ville.ville }}');
             nbVillePartenaires++;
 
+
+
         {% endfor %}
 
         $('#btn-ajout-card-ville-partenaire').hide();
@@ -204,18 +211,19 @@
 /*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
         $('.checkbox-journees-entier').hide();
         var nbCreneauxJournee = 0;
+        var journeeTab=[]
         {% for journee in journeesSecteur %}
         nbCreneauxJournee++;
 
         var nouveauCreneauEntier = prototypeCreneauRestriction.replace(/INDEX/g, nbCreneauxJournee);
 
 
-        $('#cards-creneaux-entiers').append('<div class=\'checkbox-journee-entier checkbox-journee-entier-selectionne\'  data-journee='+ nbCreneauxJournee +' >\n ' +
+        $('#cards-creneaux-entiers').append('<div class=\'checkbox-journee-entier-edit\'  data-journee='+ nbCreneauxJournee +' >\n ' +
                 '                           <div class=\'check-journee-entier\'>\n   ' +
                 '                             <span class=\'fas fa-check\'></span>\n   ' +
-                '                         </div><div class=\'contenu-day\' </div>\n      '+
-                '                      <div class=libelle-journee-entier>' + "{{ journee.date }}" + ' <input id="testCheckBox" name="checkboxEntierDay['+nbCreneauxJournee +']" type=checkbox' +
-                ' style="" checked/></div><hr>\n  ' +
+                '                         </div><div class=\'contenu-day-edit\' </div>\n      '+
+                '                      <div class=libelle-journee-entier-edit name="libelle[' +nbCreneauxJournee+ ']" data-date="{{ journee.date }}">' + "{{ journee.date }}" + ' <input id="testCheckBox" name="checkboxEntierDayEdit['+nbCreneauxJournee +']" type=checkbox' +
+                '  checked/></div><hr>\n  ' +
                 nouveauCreneauEntier);
         $('select[name="creneau[' + nbCreneauxJournee + ']"]').val('{{ journee.creneau }}');
         $('select[name="secteur[' + nbCreneauxJournee + ']"]').val('{{ journee.secteur }}');
@@ -223,6 +231,7 @@
 
         {% endfor %}
 
+        console.log(journeeTab);
         /*Slide5 Changement du bouton valider*/
 /*-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
         $('#btn-valider').hide();
@@ -312,18 +321,23 @@
             });
 
             /*SLIDE 5*/
-            var journeesTopEdit = journeesEntier;
-
-            $(journeesTopEdit).each(function (indexJour, jour) {
-                var i =indexJour+1;
-                jour["creneaux"] = $("select[name='creneau[" + i + "]']").val(),
-                    jour["secteur"] = $("select[name='secteur[" + i + "]']").val(),
-                    jour["places"] = $("input[name='input[" + i + "]']").val(),
-                    jour["checked"] = !!$('input[name="checkboxEntierDay[' + i + ']"]').is(':checked');
-
-
+            var date = new Array();
+            $('.libelle-journee-entier-edit').each(function(){
+                date.push($(this).attr('data-date'));
             });
-            console.log('test',journeesTopEdit);
+
+            var jour = new Array();
+            $('.contenu-day-edit').each(function (indexJour) {
+                var i =indexJour+1;
+                var iDate = i - 1;
+                jour.push({
+                    journee : date[iDate],
+                    creneaux : ($("select[name='creneau[" + i + "]']").val()),
+                    secteur : ($("select[name='secteur[" + i + "]']").val()),
+                    places :  ($("input[name='input[" + i + "]']").val()),
+                    checked :  !!$('input[name="checkboxEntierDayEdit[' + i + ']"]').is(':checked')
+                });
+            });
             $.ajax({
                 url: '{{ path('sejour_edit') }}',
                 data: {
@@ -350,13 +364,12 @@
                     /*SLIDE 4*/
                     villes: villes,
                     /*SLIDE 5*/
-                    journeesTopEdit:journeesTopEdit,
+                    journeesTopEdit :jour,
 
                 },
                 success: function () {
                     console.log('okajax');
-                    window.location.href = ("{{ path('sejour') }}");
-
+                    window.location.href=("{{ path('sejour') }}");
                 },
                 error: function () {
                     console.log('koajax');

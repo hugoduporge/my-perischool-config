@@ -19,7 +19,7 @@
         <script src="/build/runtime.js"></script>
         <script src="/build/app.js"></script> -->
 {% endblock %}
-<body style="background-image: url('{{ asset('build/static/dessins_old.png') }}');background-attachment: fixed;">
+<body id="body-first" style="background-image: url('{{ asset('build/static/dessins_old.png') }}');background-attachment: fixed;">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 <form id="form-ajout-instance-abonnement" method="post" >
@@ -267,6 +267,8 @@
                 if($('#date-ouverture-sejour').val() <= $('#date-fermeture-sejour').val()) {
                     $('#slide1').hide();
                     $('#slide2').show();
+                    $('.slide1').hide();
+                    $('.slide2').show();
                 }else{
                     $('#erreur-date').show();
                 }
@@ -276,10 +278,12 @@
 
             $('#slide1').show();
             $('#slide2').hide();
+            $('.slide2').hide();
+            $('.slide1').show();
         });
 
         $('.btn-slide-suivant-Toslide3').on('click', function () {
-            /*if($('input[id="myCheckBus"]:checked').length === 0 ){
+            if($('input[id="myCheckBus"]:checked').length === 0 ){
                 if($('#form-slide2').valid()){
                     $('#slide2').hide();
                     $('#slide3').show();
@@ -323,10 +327,6 @@
                         }
                     }
                 }
-            }*/
-            if($('#form-slide2').valid()) {
-                $('#slide2').hide();
-                $('#slide3').show();
             }
         });
 
@@ -350,6 +350,7 @@
         });
         $('.btn-slide-precedent-Toslide3').on('click', function () {
             $('#slide3').show();
+            $('.erreur-sur-bus').hide();
             $('#slide4').hide();
         });
 
@@ -549,38 +550,6 @@
             return journees;
         }
 
-        /*function semainesEntreDeuxDates(dateDebutString, dateFinString) {
-            var nouvellesSemaines = [];
-            var dateDebut = moment(dateDebutString);
-            var dateFin = moment(dateFinString);
-            var lundi = moment(dateDebut).startOf('isoWeek');
-            var dimanche = moment(lundi).endOf('isoWeek');
-
-            while (lundi <= dateFin) {
-                var semaine = [];
-                var dateBoucle = moment(lundi);
-                while (dateBoucle < dimanche) {
-                    if (dateBoucle >= dateDebut && dateBoucle <= dateFin) {
-                        semaine.push({
-                                       jour: dateBoucle.format('dddd DD MMMM YYYY'),
-                        });
-                    }
-                    dateBoucle = moment(dateBoucle).add(1, "day");
-                }
-                nouvellesSemaines.push(semaine);
-                lundi.add(1, "week");
-                dimanche.add(1, "week");
-            }
-
-            return nouvellesSemaines;
-        }*/
-
-
-        /*$(document).on('click', '.btn-supprimer-secteur-creneau', function () {
-            $(this).closest('.row').remove();
-        });
-*/
-
         $(document).on('click', '.btn-ajout-secteur-creneau-entier', function () {
 
             nbSecteursEntiers++;
@@ -598,22 +567,6 @@
 
             journeesEntier = journeesEntreDeuxDates(($('#date-ouverture-sejour').val()),($('#date-fermeture-sejour').val()));
             console.log(journeesEntier);
-
-            /*if ($('#checkbox-all').is(':checked')){
-                $('#bloc-creneaux-entiers').show();
-                $.each(semainesEntier, function (indexSemaine, journees) {
-                    $.each(journees, function (indexJournee, journee) {
-                        $('.checkbox-journees-entier').append('<div class=\'checkbox-journee-entier checkbox-journee-entier-selectionne\'>\n                            <div class=check-journee-entier>\n                                <span class=\'fas fa-check\'></span>\n                            </div>\n                            <div class=\'libelle-journee-entier\'  name=\'entiers[' + indexSemaine + '][' +indexJournee+ ']\'>' + journee.jour + ' <input name=\'entiers[' + journee + ']\' type="checkbox" style="" /></div>\n                            ');
-                    });
-                });
-                if (($('input[id="input-type-inscriptions-matin"]:checked').length) !== 0){
-                    $('.card-creneau-entier-matin').show();
-                }if (($('input[id="input-type-inscriptions-apres-midi"]:checked').length) !== 0){
-                    $('.card-creneau-entier-apres-midi').show();
-                }if (($('input[id="input-type-inscriptions-journee"]:checked').length) !== 0){
-                    $('.card-creneau-entier-journee').show();
-                }
-            }else*/
 
             $('#bloc-creneaux-entiers').show();
                 $.each(journeesEntier, function(indexJournee, journee) {
@@ -645,170 +598,10 @@
         /*------------------------------------------------------------------------------------------------------------------------------------*/
 
         var prototypeJeuTarif = $('#jeu-tarif-prototype').attr('data-prototype');
-        var prototypeBoutonJeuTarif = $('#bouton-jeu-tarif-prototype').attr('data-prototype');
         var prototypeJourneeJeuTarif = $('#journee-jeu-tarif-prototype').attr('data-prototype');
         var indexJeuTarifJournee = -1;
-        var selectionDuplication = [];
 
 
-        function boutonValider()
-        {
-            var stop = false;
-            var journeesSejour = journeesEntreDeuxDates($('#date-ouverture-sejour').val(), $('#date-fermeture-sejour').val());
-
-            $('#erreur-jeux-tarifs').hide();
-            $('#erreur-jeux-tarifs-journees').hide();
-
-            $('.tarif-jeu-tarif-creation-sejour:not(.tarif-global)').each(function () {
-                if($(this).val() == "" && $(this).is(':visible')) {
-                    stop = true;
-                    $('#erreur-jeux-tarifs').show();
-                }
-            });
-
-            $('.card-creneau-sejour').each(function () {
-
-                if($(this).find('.interval-inscriptions').val() == "journee" && $(this).css('display') == 'block') {
-
-                    var indexCreneau = $(this).attr('data-index');
-                    var cardJeuxTarifs = $('.card-jeu-tarif[data-creneau="' + indexCreneau + '"]');
-
-                    $.each(journeesSejour, function (indexJourneeSejour, journeeSejour) {
-
-                        if($('.card-creneau-journee[data-creneau="' + indexCreneau + '"][data-journee="' + indexJourneeSejour + '"] .creneau-au-programme').length > 0) {
-                            if(cardJeuxTarifs.find('.checkbox-journee-jeu-tarif-selectionne[data-journee="' + indexJourneeSejour + '"]').length == 0) {
-                                stop = true;
-                                $('#erreur-jeux-tarifs-journees').show();
-                            }
-                        }
-
-                    });
-
-                }
-
-            });
-
-            if(!stop) {
-                $('.preloader').fadeIn(300);
-            }
-
-            return stop;
-        }
-
-        function afficheJeuxTarifsEntiersMatinApresMidiJournee()
-        {
-            $('#card-creneau-sejour-matin').hide();
-            $('.card-jeu-tarif[data-interval="entier"][data-creneau="0"]').hide();
-            $('#card-creneau-sejour-apres-midi').hide();
-            $('.card-jeu-tarif[data-interval="entier"][data-creneau="1"]').hide();
-            $('#card-creneau-sejour-journee').hide();
-            $('.card-jeu-tarif[data-interval="entier"][data-creneau="2"]').hide();
-            $('#card-creneau-sejour-matin').show();
-            $('.card-jeu-tarif[data-interval="entier"][data-creneau="0"]').show();
-            $('#card-creneau-sejour-apres-midi').show();
-            $('.card-jeu-tarif[data-interval="entier"][data-creneau="1"]').show();
-            $('#card-creneau-sejour-journee').show();
-            $('.card-jeu-tarif[data-interval="entier"][data-creneau="2"]').show();
-
-            if($('#input-type-inscriptions-matin').prop('checked') == true) {
-
-
-            }
-            if($('#input-type-inscriptions-apres-midi').prop('checked') == true) {
-
-
-            }
-
-            if($('#input-type-inscriptions-journee').prop('checked') == true) {
-
-
-            }
-        }
-
-        function traitementJeuxTarifs()
-        {
-            // On enlève tous les boutons de création de jeux de tarifs pour le mode journée puis on les crée
-            $('#boutons-ajout-jeux-tarifs').html("");
-
-            // Changement du libellé ou création des jeux de tarifs pour chaque créneau de séjour
-            $('.card-creneau-sejour').each(function () {
-
-                // Les créneaux Matin, Après-midi et Journée sont affichés ou non selon les intervals sélectionnés
-                if($(this).css('display') == 'block') {
-
-                    var intervalInscriptions = "entier";
-                    var indexCreneau = $(this).attr('data-index');
-                    var libelleCreneau = $(this).find('.libelle-creneau').val();
-
-                    switch (intervalInscriptions) {
-
-                        // Remarque : les jeux de tarifs pour les créneaux à la journée ne sont pas générés
-                        /*case "journee" :
-
-                            var nouveauBoutonAjoutJeuTarif = prototypeBoutonJeuTarif
-                                .replace(/INDEX_CRENEAU/g, indexCreneau)
-                                .replace(/LIBELLE/g, libelleCreneau);
-
-                            $('#boutons-ajout-jeux-tarifs').append(nouveauBoutonAjoutJeuTarif);
-                            break;*/
-
-                        /*case "semaine" :
-
-                            var semainesVacances = semainesEntreDeuxDates($('#date-ouverture-sejour').val(), $('#date-fermeture-sejour').val());
-
-                            var cardsJeuTarif = $('.card-jeu-tarif[data-interval="semaine"][data-creneau="' + indexCreneau + '"]');
-                            var cardsJeuTarifExiste = cardsJeuTarif.length == 0 ? false : true;
-
-                            if (cardsJeuTarifExiste) {
-                                cardsJeuTarif.find('.card-jeu-tarif-titre').html(libelleCreneau);
-                            } else {
-                                $.each(semainesVacances, function (indexSemaineVacances, semaineVacances) {
-                                    var nouveauJeuTarif = prototypeJeuTarif
-                                        .replace(/INDEX_CRENEAU/g, indexCreneau)
-                                        .replace(/LIBELLE/g, libelleCreneau)
-                                        .replace(/PROPRIETES/g, "[semaine][" + indexCreneau + "][" + indexSemaineVacances + "]")
-                                        .replace(/INTERVAL/g, "semaine")
-                                        .replace(/AFFICHE_PERIODE/g, "")
-                                        .replace(/TEXTE_PERIODE/g, "Du <b class='m-l-5 m-r-5'>" + semaineVacances[0].format('dddd DD/MM') + "</b> au <b class='m-l-5 m-r-5'>" + semaineVacances[semaineVacances.length - 1].format('dddd DD/MM') + "</b>")
-                                        .replace(/SEMAINE/g, semaineVacances[0].format('DD/MM/YYYY'))
-                                        .replace(/AFFICHE_JOURNEES/g, "hidden")
-                                        .replace(/AFFICHE_BOUTON_SUPPRESSION/g, "hidden");
-
-                                    $('#cards-jeux-tarifs').append(nouveauJeuTarif);
-                                });
-                            }
-
-                            break;
-*/
-                        case "entier" :
-
-                            var cardJeuTarif = $('.card-jeu-tarif[data-interval="entier"][data-creneau="' + indexCreneau + '"]');
-                            var cardJeuTarifExiste = cardJeuTarif.length == 0 ? false : true;
-
-                            if (cardJeuTarifExiste) {
-                                cardJeuTarif.find('.card-jeu-tarif-titre').html(libelleCreneau);
-                            } else {
-                                var nouveauJeuTarif = prototypeJeuTarif
-                                    .replace(/INDEX_CRENEAU/g, indexCreneau)
-                                    .replace(/LIBELLE/g, libelleCreneau)
-                                    .replace(/PROPRIETES/g, "[entier][" + indexCreneau + "]")
-                                    .replace(/INTERVAL/g, "entier")
-                                    .replace(/AFFICHE_PERIODE/g, "hidden")
-                                    .replace(/AFFICHE_JOURNEES/g, "hidden")
-                                    .replace(/AFFICHE_BOUTON_SUPPRESSION/g, "hidden");
-
-                                $('#cards-jeux-tarifs').append(nouveauJeuTarif);
-                            }
-
-                            break;
-
-                        default :
-                            break;
-                    }
-                }
-
-            });
-        }
 
         $(document).on('click', '.btn-ajout-jeu-tarif', function () {
             indexJeuTarifJournee++;

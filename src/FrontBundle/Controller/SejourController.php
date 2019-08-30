@@ -246,10 +246,10 @@ class SejourController extends Controller
                     if ('true' === $journee['checked'] ) {
                         $journeeSecteur = new JourneeSecteur();
                         $journeeSecteur->setSejour($sejour);
-                        $journeeSecteur->setDate($journee['jour']);
-                        $journeeSecteur->setCreneau($journee['creneaux']);
-                        $journeeSecteur->setPlaces($journee['places']);
-                        $journeeSecteur->setSecteur($journee['secteur']);
+                            $journeeSecteur->setDate($journee['journee']);
+                            $journeeSecteur->setCreneau($journee['creneaux']);
+                            $journeeSecteur->setPlaces($journee['places']);
+                            $journeeSecteur->setSecteur($journee['secteur']);
                         $entityManager = $this->getDoctrine()->getManager();
                         $entityManager->persist($journeeSecteur);
                     }
@@ -390,9 +390,9 @@ class SejourController extends Controller
                     $journeeSecteur = new JourneeSecteur();
                     $journeeSecteur->setSejour($sejour);
                     $journeeSecteur->setDate($journee['jour']);
+                    $journeeSecteur->setSecteur($journee['secteur']);
                     $journeeSecteur->setCreneau($journee['creneaux']);
                     $journeeSecteur->setPlaces($journee['places']);
-                    $journeeSecteur->setSecteur($journee['secteur']);
                     $entityManager = $this->getDoctrine()->getManager();
                     $entityManager->persist($journeeSecteur);
                 }

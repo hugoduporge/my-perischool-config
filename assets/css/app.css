@@ -1,9 +1,20 @@
 @import url(https://fonts.googleapis.com/css?family=PT+Sans&display=swap);
 body{
-    background-color: #c8dafa !important;
 
     font-family: 'PT Sans', sans-serif !important;
+    background: #c1cbee;
+    background: -webkit-linear-gradient(to right, #b4eee0, #5a78ff);
+    background: linear-gradient(to right, #b4eee0, #5a78ff);
+    min-height: 100vh;
+
 }
+#body-first{
+    font-family: 'PT Sans', sans-serif !important;
+    background-color: #b4eee0 !important;
+}
+
+
+
 .error{
     color:#ff7e6f;
     font-size: 16px;
@@ -52,12 +63,16 @@ body{
 .date-slide1{
     margin-left:1px !important;
 }
+.col-lg-12 {
+    box-shadow: 10px 10px 5px dimgrey;
+}
 .card{
     margin: 0 auto;
-    margin-top:1%;
+    margin-top:3%;
     box-shadow: 10px 10px 5px grey;
     position: inherit;
     width: 70%;
+    margin-bottom: 1%;
 }
 .card-body{
     margin-left:1%
@@ -336,4 +351,22 @@ body{
     margin-bottom: 10px;
     height: 10%;
     margin-left: 1.5%
+}
+.btn-ajouter-sejour{
+    margin-left : 80%;
+    text-decoration: none;
+
+
+}
+.btn-ajouter-sejour:hover{
+    text-decoration: none;
+}
+.btn:hover{
+    text-decoration: none;
+}
+a{
+    color:white !important;
+}
+.progress{
+    margin: auto;
 }

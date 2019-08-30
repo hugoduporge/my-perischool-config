@@ -1,57 +1,75 @@
-{% include "@Front/Sejour/navbar.html.twig " %}
+<nav style="background-attachment: fixed;">{% include "@Front/Sejour/navbar.html.twig " %}</nav>
+
 {% block stylesheets %}
-    {# 'app' must match the first argument to addEntry() in webpack.config.js #}
     {{ encore_entry_link_tags('app') }}
-
-    <!-- Renders a link tag (if your module requires any CSS)
-         <link rel="stylesheet" href="/build/app.css"> -->
 {% endblock %}
-
 {% block content %}
-    <script src="https://kit.fontawesome.com/dac2f170c5.js"></script>
-
-    <body style="background-image: url('{{ asset('build/static/dessins_old.png') }}');background-attachment: fixed;">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/dac2f170c5.js"></script>
+{#
+<body id="body-first" style="background-image: url('{{ asset('build/static/dessins_old.png') }}');background-attachment: fixed;">
+#}
 
-    <div id="main-card" class="card rounded">
-        <div class="card-body">
-            <div id="titre-1" class="flex">
-                <div class="row block-titre">
-                    <div class="bloc-titre-slide">
-                        <h1 class=" mid titre-slide text-muted-2">Vos séjours</h1>
+    <div class="px-4 px-lg-0">
+
+
+        <div class="pb-5 rounded " style="margin-top:5%; ">
+            <div class="container rounded">
+                <div class="row">
+                    <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-5" style="box-shadow: 10px 10px 5px grey !important;">
+
+                        <!-- Shopping cart table -->
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th scope="col" class="border-0 bg-light">
+                                        <div class="p-2 px-3 text-uppercase">Séjour</div>
+                                    </th>
+                                    <th scope="col" class="border-0 bg-light">
+                                        <div class="p-2 px-3 text-uppercase"></div>
+                                    </th>
+                                    <th scope="col" class="border-0 bg-light">
+                                        <div class="p-2 px-3 text-uppercase"></div>
+                                    </th>
+                                    <th scope="col" class="border-0 bg-light">
+                                        <div class="py-2 text-uppercase">Action</div>
+                                    </th>
+                                </tr>
+                                </thead>
+                                {% for sejour in sejours %}
+
+                                    <tbody>
+                                    <tr>
+                                        <th scope="row" class="border-0">
+                                            <div class="p-2">
+                                                <div class="ml-3 d-inline-block align-middle">
+                                                    <h5 class="mb-0"> <a href="#" class=" text-dark d-inline-block align-middle"><b>{{ sejour.libelle }} </b></a></h5>
+                                                </div>
+                                            </div>
+                                        </th>
+                                        <td class="border-0 align-middle"><a href="#" class="text-dark"></i> </a></td>
+                                        <td class="border-0 align-middle"><a href="#" class="text-dark"></i> </a></td>
+
+                                        <td class="border-0 align-middle">
+                                            <a class=" btn-sejour-edit text-dark " href={{ path('sejour_editer', { 'id' : sejour.id }) }}><i class="far fa-edit"  style="color: dodgerblue;"></i></a>
+                                            <a class="fa fa-times btn-sejour-delete" href="" data-id="{{ sejour.id }}"><i class="fa fa-times" style="color:red;"></i></a>
+
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                {% endfor %}
+                            </table>
+                            <button class="btn btn-ajouter-sejour btn-success btn-sejour-add" type="button" ><a href="{{ path('sejour_ajouter') }}">  Ajouter un séjour </a></button>
+
+                        </div>
+                        <!-- End -->
                     </div>
                 </div>
             </div>
-            <hr>
-            <table id="sejours">
-
-                <tbody>
-                {% for sejour in sejours %}
-                <tr>
-                    <td id="libelle_sejour" class="rounded"> {{ sejour.libelle }}</td>
-                    <td>
-
-                        <button class="btn-sejour-edit"><a class="btn-sejour-edit"
-                                                           href={{ path('sejour_editer', { 'id' : sejour.id }) }}><i class="fas fa-edit"></i></a></button>
-
-                        <button class="btn-sejour-delete" data-id="{{ sejour.id }}"><i class="fas fa-trash-alt"></i></button>
-                    </td>
-                </tr>
-                </tbody>
-
-                {% endfor %}
-            </table>
-            <button class="btn-sejour-add"><a href="{{ path('sejour_ajouter') }}"><i class="fas fa-plus-circle">Ajouter un séjour </i>
-
-                </a></button>
         </div>
     </div>
-    </body>
-
-</html>
 {% endblock %}
-
-
 {%  block appendJS %}
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script type="text/javascript">
@@ -74,5 +92,5 @@
         });
 
 
-</script>
+    </script>
 {% endblock %}
